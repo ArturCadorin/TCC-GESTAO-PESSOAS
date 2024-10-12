@@ -5,10 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -16,15 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.gestao_pessoas.tccII.dto.SetorDTO;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "tb_setor")
@@ -46,7 +35,6 @@ public class Setor implements Serializable{
 	private String descricao;
 	
 	@NotNull(message = "A data inicial não pode ser nula.")
-	@NotEmpty
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;
 	

@@ -3,13 +3,11 @@ package com.gestao_pessoas.tccII.entities;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import jakarta.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gestao_pessoas.tccII.enums.Sexo;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -28,7 +26,6 @@ public class Usuario extends Pessoa{
 	private String senha;
 	
 	@NotNull(message = "A data inicial não pode ser nula.")
-	@NotEmpty
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;
 	

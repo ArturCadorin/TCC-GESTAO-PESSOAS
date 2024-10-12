@@ -5,24 +5,14 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.gestao_pessoas.tccII.dto.PlanoCarreiraDTO;
 import com.gestao_pessoas.tccII.enums.NivelPlanoCarreira;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "tb_plano_carreira")
@@ -42,11 +32,9 @@ public class PlanoCarreira implements Serializable{
 	private NivelPlanoCarreira nivel;
 	
 	@NotNull(message = "A remuneração não pode ser nula.")
-	@NotEmpty
 	private double remuneracao;
 	
 	@NotNull(message = "A data inicial não pode ser nula.")
-	@NotEmpty
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;	
 	

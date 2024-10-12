@@ -5,11 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
 import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -18,6 +13,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.gestao_pessoas.tccII.dto.EmpresaDTO;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "tb_empresa")
@@ -35,13 +31,12 @@ public class Empresa implements Serializable{
 	private String nome;
 	
 	@NotNull(message = "O CNPJ não pode ser nulo.")
-	@Size(min = 14, max = 14)
+	@Size(min = 14, max = 20)
 	@Pattern(regexp = "^\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}$|^\\d{14}$",
     		message = "O CNPJ deve estar no formato 00.000.000/0001-00 ou conter 14 números")
 	private String cnpj;
 	
 	@NotNull(message = "A data inicial não pode ser nula.")
-	@NotEmpty
 	private LocalDate dataInicial;
 	
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)

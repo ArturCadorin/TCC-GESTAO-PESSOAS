@@ -35,7 +35,6 @@ public class Cargo implements Serializable{
 	private String descricao;
 	
 	@NotNull(message = "A data inicial não pode ser nula.")
-	@NotEmpty
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;
 	

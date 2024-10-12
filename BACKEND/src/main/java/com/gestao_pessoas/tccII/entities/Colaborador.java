@@ -11,12 +11,7 @@ import com.gestao_pessoas.tccII.dto.ColaboradorDTO;
 import com.gestao_pessoas.tccII.enums.Sexo;
 import com.gestao_pessoas.tccII.enums.SituacaoColaborador;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
@@ -27,11 +22,9 @@ public class Colaborador extends Pessoa {
 	private static final long serialVersionUID = 1L;
 	
 	@NotNull(message = "A matricula não pode ser nula.")
-	@NotEmpty
 	private int matricula;
 	
 	@NotNull(message = "A data de admissão não pode ser nula.")
-	@NotEmpty
 	private LocalDate dataAdmissao;
 	private LocalDate dataFinal;
 	

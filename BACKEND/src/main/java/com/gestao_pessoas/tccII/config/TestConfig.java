@@ -25,7 +25,7 @@ import com.gestao_pessoas.tccII.repositories.SetorRepository;
 // Classe de configuração TESTE, exclusiva para popular banco de dados H2
 
 @Configuration
-@Profile("dev")
+@Profile("test")
 public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
@@ -73,8 +73,8 @@ public class TestConfig implements CommandLineRunner{
 				null, 
 				"Artur de Jesus Cadorin", 
 				LocalDate.now(), 
-				"090.159.129-71", 
-				"5.961-451", 
+				"09015912971", 
+				"5961451", 
 				Sexo.MASCULINO,
 				emp1, 
 				12345, 

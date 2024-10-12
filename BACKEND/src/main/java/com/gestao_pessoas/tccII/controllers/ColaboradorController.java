@@ -21,6 +21,7 @@ import com.gestao_pessoas.tccII.dto.ColaboradorDTO;
 import com.gestao_pessoas.tccII.entities.Colaborador;
 import com.gestao_pessoas.tccII.services.ColaboradorService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -30,18 +31,21 @@ public class ColaboradorController {
 	@Autowired
 	private ColaboradorService service;
 	
+	@Operation(description = "Busca todos os colaboradores.")
 	@GetMapping
 	public ResponseEntity<List<ColaboradorDTO>> findAll(){
 		List<ColaboradorDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
+	@Operation(description = "Busca o colaborador pelo id.")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ColaboradorDTO> findById(@PathVariable Long id){
 		ColaboradorDTO colaboradorDTO = service.findById(id);
 		return ResponseEntity.ok().body(colaboradorDTO);
 	}
 	
+	@Operation(description = "Insere um novo colaborador.")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<ColaboradorDTO> insert(@Valid @RequestBody ColaboradorDTO colaboradorDTO){
@@ -51,6 +55,7 @@ public class ColaboradorController {
 		return ResponseEntity.created(uri).body(createdColaboradorDTO);
 	}
 	
+	@Operation(description = "Deleta o colaborador pelo id.")
 	@DeleteMapping(value = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<Void> delete(@PathVariable Long id){
@@ -58,6 +63,7 @@ public class ColaboradorController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@Operation(description = "Atualiza o colaborador pelo id.")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Colaborador> update(@PathVariable Long id, @RequestBody Colaborador obj){
 		obj = service.update(id, obj);

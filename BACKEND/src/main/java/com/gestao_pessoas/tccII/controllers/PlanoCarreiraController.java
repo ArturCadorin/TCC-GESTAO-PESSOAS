@@ -21,6 +21,7 @@ import com.gestao_pessoas.tccII.dto.PlanoCarreiraDTO;
 import com.gestao_pessoas.tccII.entities.PlanoCarreira;
 import com.gestao_pessoas.tccII.services.PlanoCarreiraService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -30,18 +31,21 @@ public class PlanoCarreiraController {
 	@Autowired
 	private PlanoCarreiraService service;
 	
+	@Operation(description = "Busca todos os planos de carreiras.")
 	@GetMapping
 	public ResponseEntity<List<PlanoCarreiraDTO>> findAll(){
 		List<PlanoCarreiraDTO> listDTO = service.findAll();
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
+	@Operation(description = "Busca o plano de carreira pelo id.")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<PlanoCarreiraDTO> findById(@PathVariable Long id){
 		PlanoCarreiraDTO planoCarreiraDTO = service.findById(id);
 		return ResponseEntity.ok().body(planoCarreiraDTO);
 	}
-
+	
+	@Operation(description = "Insere um novo plano de carreira.")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<PlanoCarreiraDTO> insert(@Valid @RequestBody PlanoCarreiraDTO planoCarreiraDTO){
@@ -51,6 +55,7 @@ public class PlanoCarreiraController {
 		return ResponseEntity.created(uri).body(createdPlanoCarreiraDTO);
 	}
 	
+	@Operation(description = "Deleta o plano de carreira pelo id.")
 	@DeleteMapping(value = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<Void> delete(@PathVariable Long id){
@@ -58,6 +63,7 @@ public class PlanoCarreiraController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@Operation(description = "Atualiza o plano de carreira pelo id.")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<PlanoCarreira> update(@PathVariable Long id, @RequestBody PlanoCarreira obj){
 		obj = service.update(id, obj);

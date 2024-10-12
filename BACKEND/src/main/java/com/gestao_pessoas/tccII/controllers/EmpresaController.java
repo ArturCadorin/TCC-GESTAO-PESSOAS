@@ -21,6 +21,7 @@ import com.gestao_pessoas.tccII.dto.EmpresaDTO;
 import com.gestao_pessoas.tccII.entities.Empresa;
 import com.gestao_pessoas.tccII.services.EmpresaService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -30,18 +31,21 @@ public class EmpresaController {
 	@Autowired
 	private EmpresaService service;
 	
+	@Operation(description = "Busca todas as empresas.")
 	@GetMapping
 	public ResponseEntity<List<EmpresaDTO>> findAll(){
 		List<EmpresaDTO> listDTO = service.findAll();
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
+	@Operation(description = "Busca a empresa pelo id.")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<EmpresaDTO> findById(@PathVariable Long id){
 		EmpresaDTO empresaDTO = service.findById(id);
 		return ResponseEntity.ok().body(empresaDTO);
 	}
 	
+	@Operation(description = "Insere uma nova empresa.")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<EmpresaDTO> insert(@Valid @RequestBody EmpresaDTO empresaDTO){
@@ -51,6 +55,7 @@ public class EmpresaController {
 		return ResponseEntity.created(uri).body(createdEmpresaDTO);
 	}
 	
+	@Operation(description = "Deleta a empresa pelo id.")
 	@DeleteMapping(value = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<Void> delete(@PathVariable Long id){
@@ -58,6 +63,7 @@ public class EmpresaController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@Operation(description = "Atualiza a empresa pelo id.")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Empresa> update(@PathVariable Long id, @RequestBody Empresa obj){
 		obj = service.update(id, obj);

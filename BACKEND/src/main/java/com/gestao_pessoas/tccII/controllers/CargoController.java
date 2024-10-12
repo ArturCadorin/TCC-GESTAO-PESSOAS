@@ -21,6 +21,7 @@ import com.gestao_pessoas.tccII.dto.CargoDTO;
 import com.gestao_pessoas.tccII.entities.Cargo;
 import com.gestao_pessoas.tccII.services.CargoService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -30,18 +31,21 @@ public class CargoController {
 	@Autowired
 	private CargoService service;
 	
+	@Operation(description = "Busca todos os cargos.")
 	@GetMapping
 	public ResponseEntity<List<CargoDTO>> findAll(){
 		List<CargoDTO> listDTO = service.findAll();
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
+	@Operation(description = "Busca o cargo pelo id.")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<CargoDTO> findById(@PathVariable Long id){
 		CargoDTO cargoDTO = service.findById(id);
 		return ResponseEntity.ok().body(cargoDTO);
 	}
 	
+	@Operation(description = "Insere um novo cargo.")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<CargoDTO> insert(@Valid @RequestBody CargoDTO cargoDTO){
@@ -51,6 +55,7 @@ public class CargoController {
 		return ResponseEntity.created(uri).body(createdCargoDTO);
 	}
 	
+	@Operation(description = "Deleta o cargo pelo id.")
 	@DeleteMapping(value = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<Void> delete(@PathVariable Long id){
@@ -58,6 +63,7 @@ public class CargoController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@Operation(description = "Atualiza o cargo pelo id.")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Cargo> update(@PathVariable Long id, @RequestBody Cargo obj){
 		obj = service.update(id, obj);
