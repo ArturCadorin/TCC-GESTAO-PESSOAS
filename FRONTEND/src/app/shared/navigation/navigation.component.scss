@@ -1,0 +1,21 @@
+mat-toolbar{
+    position: relative;
+    z-index: 5;
+    background-color: #154c79;
+}
+mat-toolbar img{
+    margin-left: 10px;
+    height: 60px;
+}
+
+.content{
+    padding: 24px;
+}
+
+mat-sidenav-container{
+    height: calc(100vh - 64px);
+    background-color: whitesmoke;
+}
+mat-sidenav{
+    background-color: #154c79;
+}
