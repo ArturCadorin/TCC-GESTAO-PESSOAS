@@ -1,5 +1,0 @@
-spring.application.name=tccII
-
-spring.jpa.open-in-view=true
-
-spring.profiles.active=dev
