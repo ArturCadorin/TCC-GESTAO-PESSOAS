@@ -2,6 +2,7 @@ import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 export type MenuItem = {
   icon: string;
@@ -12,7 +13,7 @@ export type MenuItem = {
 @Component({
   selector: 'app-sidenav-content',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatListModule, MatIconModule, RouterModule],
   templateUrl: './sidenav-content.component.html',
   styleUrl: './sidenav-content.component.scss'
 })

@@ -1,7 +1,9 @@
+
 mat-toolbar{
     position: relative;
     z-index: 5;
     background-color: #154c79;
+    color: white;
 }
 mat-toolbar img{
     margin-left: 10px;
@@ -17,5 +19,6 @@ mat-sidenav-container{
     background-color: whitesmoke;
 }
 mat-sidenav{
-    background-color: #154c79;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 6px #154c79;
 }

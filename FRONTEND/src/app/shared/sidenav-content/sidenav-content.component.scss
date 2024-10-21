@@ -1,3 +1,13 @@
+:host * {
+    transition: all 300ms ease-in-out;
+}
 mat-nav-list{
     margin-top: 50px;
+}
+.items{
+    font-size: 20px;
+}
+
+.selected-menu-item{
+    box-shadow: 1px 1px 6px #154c79;
 }

@@ -1,2 +1,77 @@
+@use '@angular/material' as mat;
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$custom-primary: mat.define-palette((
+  50: #e1ebf2,
+  100: #b3cddd,
+  200: #80acc5,
+  300: #4d8aad,
+  400: #266e9d,
+  500: #154c79, // Cor principal
+  600: #12426f,
+  700: #0f3661,
+  800: #0b2b52,
+  900: #071e3e,
+  A100: #a1caff,
+  A200: #6baeff,
+  A400: #3391ff,
+  A700: #007aff,
+  // Inclua a chave 'contrast' aqui, que define as cores de contraste.
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+));
+$custom-secondary: mat.define-palette((
+  50: #fdf0e5,
+  100: #f8d9c1,
+  200: #f2c199,
+  300: #eab676, // Cor principal - tonalidade 500
+  400: #d99e52,
+  500: #c9872f, // Cor principal 
+  600: #b57a2a,
+  700: #996624,
+  800: #7e511e,
+  900: #5f3b15,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white, // Contraste para 500
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: white,
+    A700: white,
+  )
+));
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-secondary, 
+    warn: $custom-warn,
+  )
+));
+
+@include mat.all-component-themes($custom-theme);

@@ -4,12 +4,11 @@
     </button>
     <img src="../../../assets/logo.png" alt="Logo">
 </mat-toolbar>
-<mat-sidenav-container>
+<mat-sidenav-container >
     <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
         <app-sidenav-content [collapsed]="collapsed()"></app-sidenav-content>
     </mat-sidenav>
     <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
-        TESTE
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
