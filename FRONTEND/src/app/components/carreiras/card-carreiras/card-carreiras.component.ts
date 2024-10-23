@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { GridListComponent } from '../../../shared/grid-list/grid-list.component'
 @Component({
   selector: 'app-card-carreiras',
   standalone: true,
-  imports: [],
+  imports: [GridListComponent],
   templateUrl: './card-carreiras.component.html',
   styleUrl: './card-carreiras.component.scss'
 })

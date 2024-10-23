@@ -15,6 +15,7 @@ import { SidenavContentComponent } from "../sidenav-content/sidenav-content.comp
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
+  
   // Sidebar encolhida
   collapsed = signal(false);
   sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');

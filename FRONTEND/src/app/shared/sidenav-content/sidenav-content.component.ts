@@ -4,6 +4,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
+// Declaração do conteudo da sidebar.
 export type MenuItem = {
   icon: string;
   label: string;
@@ -19,11 +20,13 @@ export type MenuItem = {
 })
 export class SidenavContentComponent {
 
+  // Função para colapsar a sidebar.
   sidenavCollapsed = signal(false);
   @Input() set collapsed(val: boolean){
     this.sidenavCollapsed.set(val);
   }
 
+  // Conteudo da sidebar.
   menuItems = signal<MenuItem[]>([
     {
       icon: 'dashboard',
