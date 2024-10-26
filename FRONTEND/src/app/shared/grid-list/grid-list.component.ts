@@ -4,6 +4,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ConsultaEstruturaComponent } from '../../components/estrutura/consulta-estrutura/consulta-estrutura.component'
 
 // Layout do gridlist
 export interface Tile {
@@ -16,7 +17,7 @@ export interface Tile {
 @Component({
   selector: 'app-grid-list',
   standalone: true,
-  imports: [MatGridListModule, MatIconModule, MatFormFieldModule, CommonModule],
+  imports: [MatGridListModule, MatIconModule, MatFormFieldModule, ConsultaEstruturaComponent ,CommonModule],
   templateUrl: './grid-list.component.html',
   styleUrls: ['./grid-list.component.scss'],
 })
@@ -41,18 +42,24 @@ export class GridListComponent {
 
   constructor(private route: ActivatedRoute) {}
 
+  showNewComponent = false;
+
+  toggleComponent() {
+    this.showNewComponent = !this.showNewComponent;
+  }
+
   setTitleBasedOnRoute(route: string) {
     if (route === "estrutura") {
-      this.title = "Estrutura da Empresa";
+      this.title = "ESTRUTURA DA EMPRESA";
       this.showButtons = this.buttonTitlesForEstrutura; // Define os botões para "estrutura"
     } else if (route === "pessoas") {
-      this.title = "Gestão de Pessoas";
+      this.title = "GESTÃO DE PESSOAS";
       this.showButtons = this.buttonTitlesForPessoas; // Define os botões para "pessoas"
     } else if (route === "carreiras") {
-      this.title = "Desenvolvimento de Carreiras";
+      this.title = "DESENVOLVIMENTO DE CARREIRAS";
       this.showButtons = this.buttonTitlesForCarreiras; // Define os botões para "carreiras"
     } else {
-      this.title = "Página Desconhecida";
+      this.title = "PÁGINA DESCONHECIDA";
       this.showButtons = []; // Nenhum botão para rotas desconhecidas
     }
   }

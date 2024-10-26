@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;  }
 
 $custom-primary: mat.define-palette((
   50: #e1ebf2,
