@@ -1,8 +1,15 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
-import { CardPessoasComponent } from './components/pessoas/card-pessoas/card-pessoas.component';
-import { CardEstruturaComponent } from './components/estrutura/card-estrutura/card-estrutura.component';
-import { CardCarreirasComponent } from './components/carreiras/card-carreiras/card-carreiras.component';
+import { EmpresaComponent } from './components/estrutura/empresa/empresa.component';
+import { PessoaFisicaComponent } from './components/pessoas/pessoa-fisica/pessoa-fisica.component';
+import { PlanosComponent } from './components/carreiras/planos/planos.component';
+import { SetorComponent } from './components/estrutura/setor/setor.component';
+import { CargoComponent } from './components/estrutura/cargo/cargo.component';
+import { MatriculasComponent } from './components/pessoas/matriculas/matriculas.component';
+import { UsuariosComponent } from './components/pessoas/usuarios/usuarios.component';
+import { NiveisComponent } from './components/carreiras/niveis/niveis.component';
+
+
 
 export const routes: Routes = [
     {
@@ -11,19 +18,60 @@ export const routes: Routes = [
         redirectTo: 'dashboard'
     },
     {
-        path: 'dashboard',
+        path: 'info-gerais',
         component: DashboardComponent,
+        children: [
+            {
+                path: 'dashboard', 
+                component: DashboardComponent,
+            },
+        ],
     },
     {
         path: 'estrutura',
-        component: CardEstruturaComponent,
+        children: [
+            {
+                path: 'empresas',
+                component: EmpresaComponent,
+            },
+            {
+                path: 'setores',
+                component: SetorComponent,
+            },
+            {
+                path: 'cargos',
+                component: CargoComponent,
+            },
+        ],
     },
     {
         path: 'pessoas',
-        component: CardPessoasComponent,
+        children: [
+            {
+                path: 'pessoa-fisica',
+                component: PessoaFisicaComponent,
+            },
+            {
+                path: 'matriculas',
+                component: MatriculasComponent,
+            },
+            {
+                path: 'usuarios',
+                component: UsuariosComponent,
+            },
+        ],
     },
     {
         path: 'carreiras',
-        component: CardCarreirasComponent,
+        children: [
+            {   
+                path: 'plano-carreira',
+                component: PlanosComponent,
+            },
+            {
+                path: 'niveis',
+                component: NiveisComponent,
+            },
+        ],
     },
 ];
