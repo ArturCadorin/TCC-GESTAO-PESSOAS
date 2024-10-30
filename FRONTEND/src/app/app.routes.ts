@@ -1,15 +1,7 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
-import { EmpresaComponent } from './components/estrutura/empresa/empresa.component';
-import { PessoaFisicaComponent } from './components/pessoas/pessoa-fisica/pessoa-fisica.component';
-import { PlanosComponent } from './components/carreiras/planos/planos.component';
-import { SetorComponent } from './components/estrutura/setor/setor.component';
-import { CargoComponent } from './components/estrutura/cargo/cargo.component';
-import { MatriculasComponent } from './components/pessoas/matriculas/matriculas.component';
-import { UsuariosComponent } from './components/pessoas/usuarios/usuarios.component';
-import { NiveisComponent } from './components/carreiras/niveis/niveis.component';
-
-
+import { EmpresaComponent } from './components/estrutura/empresa/empresa/empresa.component';
+import { SetorComponent } from './components/estrutura/setor/setor/setor.component';
+import { CargoComponent } from './components/estrutura/cargo/cargo/cargo.component';
 
 export const routes: Routes = [
     {
@@ -19,11 +11,14 @@ export const routes: Routes = [
     },
     {
         path: 'info-gerais',
-        component: DashboardComponent,
+        component: EmpresaComponent,
         children: [
             {
                 path: 'dashboard', 
-                component: DashboardComponent,
+                component: EmpresaComponent,
+                data: {
+                    title: 'Dashboard',
+                },
             },
         ],
     },
@@ -33,14 +28,23 @@ export const routes: Routes = [
             {
                 path: 'empresas',
                 component: EmpresaComponent,
+                data: {
+                    title: 'Empresas',
+                },
             },
             {
                 path: 'setores',
                 component: SetorComponent,
+                data: {
+                    title: 'Setores',
+                },
             },
             {
                 path: 'cargos',
                 component: CargoComponent,
+                data: {
+                    title: 'Cargos',
+                },
             },
         ],
     },
@@ -49,15 +53,24 @@ export const routes: Routes = [
         children: [
             {
                 path: 'pessoa-fisica',
-                component: PessoaFisicaComponent,
+                component: EmpresaComponent,
+                data: {
+                    title: 'Pessoa Física',
+                },
             },
             {
                 path: 'matriculas',
-                component: MatriculasComponent,
+                component: EmpresaComponent,
+                data: {
+                    title: 'Matrículas',
+                },
             },
             {
                 path: 'usuarios',
-                component: UsuariosComponent,
+                component: EmpresaComponent,
+                data: {
+                    title: 'Usuários',
+                },
             },
         ],
     },
@@ -66,11 +79,17 @@ export const routes: Routes = [
         children: [
             {   
                 path: 'plano-carreira',
-                component: PlanosComponent,
+                component: EmpresaComponent,
+                data: {
+                    title: 'Plano de Carreira',
+                },
             },
             {
                 path: 'niveis',
-                component: NiveisComponent,
+                component: EmpresaComponent,
+                data: {
+                    title: 'Níveis',
+                },
             },
         ],
     },

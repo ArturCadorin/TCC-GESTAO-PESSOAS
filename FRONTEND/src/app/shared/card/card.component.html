@@ -1,35 +1,8 @@
-<mat-grid-list cols="3" rowHeight="100px">
-    <mat-grid-tile *ngFor="let tile of tiles" 
-                 [colspan]="tile.cols" 
-                 [rowspan]="tile.rows">
-        <!-- Renderizando conteúdo específico baseado no texto do tile -->
-        <ng-container *ngIf="tile.text === 'HEADER'" class="header-container">
-            <div class="search">
-                <form class="search-form">
-                    <mat-form-field class="search-comp">
-                        <mat-label>Pesquisar</mat-label>
-                        <input matInput placeholder="Ex. nome, documento" id="search">
-                    </mat-form-field>
-                </form>
-                <button mat-icon-button aria-label="Example icon button with a open in search icon" [style.backgroundColor]="'#154c79'" [style.color]="'white'">
-                    <mat-icon>search</mat-icon>
-                </button>
-            </div>
-            
-            <div class="buttons">
-                <button mat-flat-button [style.backgroundColor]="'green'" [style.color]="'white'"><mat-icon>add</mat-icon>INCLUIR</button>
-                <button mat-flat-button [style.backgroundColor]="'red'" [style.color]="'white'"><mat-icon>delete</mat-icon>INATIVAR</button>
-            </div>
-        </ng-container>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <h1>{{pageTitle}}</h1>
+        <!-- HEADER -->
+        <app-table-content></app-table-content>
+    </mat-card-content>
+</mat-card>
 
-
-
-        <ng-container *ngIf="tile.text === 'DETAILS'">
-            <ng-container *ngComponentOutlet="activeComponentDetails"></ng-container>
-        </ng-container>
-        <ng-container *ngIf="tile.text === 'CONTENT'">
-            <ng-container *ngComponentOutlet="activeComponentContent"></ng-container>
-        </ng-container>
-    </mat-grid-tile>
-</mat-grid-list>
-  

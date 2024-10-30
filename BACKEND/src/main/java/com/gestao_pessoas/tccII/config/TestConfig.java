@@ -16,6 +16,7 @@ import com.gestao_pessoas.tccII.entities.PlanoCarreira;
 import com.gestao_pessoas.tccII.entities.Setor;
 import com.gestao_pessoas.tccII.enums.NivelPlanoCarreira;
 import com.gestao_pessoas.tccII.enums.Sexo;
+import com.gestao_pessoas.tccII.enums.SituacaoColaborador;
 import com.gestao_pessoas.tccII.repositories.CargoRepository;
 import com.gestao_pessoas.tccII.repositories.ColaboradorRepository;
 import com.gestao_pessoas.tccII.repositories.EmpresaRepository;
@@ -70,15 +71,14 @@ public class TestConfig implements CommandLineRunner{
 		
 		//Colaborador
 		Colaborador colaborador = new Colaborador(
-				null, 
-				"Artur de Jesus Cadorin", 
-				LocalDate.now(), 
+				null , 
+				"Artur de Jesus Cadorin",
+				LocalDate.of(1995, 11, 24),
 				"09015912971", 
-				"5961451", 
+				"5961451",
 				Sexo.MASCULINO,
 				emp1, 
-				12345, 
-				LocalDate.now(),
+				LocalDate.now(), 
 				set1, 
 				cargo1);	
 		colaboradorRepository.save(colaborador);

@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import org.springframework.beans.BeanUtils;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.gestao_pessoas.tccII.dto.ColaboradorDTO;
@@ -17,12 +18,32 @@ import jakarta.validation.constraints.*;
 @Entity
 @Table(name = "tb_colaborador")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Colaborador extends Pessoa {
+public class Colaborador {
 
 	private static final long serialVersionUID = 1L;
 	
-	@NotNull(message = "A matricula não pode ser nula.")
-	private int matricula;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
+	
+	@NotNull(message = "O nome não pode ser nulo.")
+	@Size(min = 2, max = 50, message = "O nome deve ter entre 2 e 50 caracteres.")
+	private String nome;
+	
+	@NotNull(message = "A data de nascimento não pode ser nula.")
+	private LocalDate nascimento;
+	
+	@NotNull(message = "O CPF não pode ser nulo.")
+	@Size(min = 11, max = 11)
+	private String cpf;
+	
+	@NotNull(message = "O RG não pode ser nulo.")
+	@Size(max = 9)
+	private String rg;
+	
+	@NotNull(message = "O sexo não pode ser nulo.")
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
 	
 	@NotNull(message = "A data de admissão não pode ser nula.")
 	private LocalDate dataAdmissao;
@@ -39,15 +60,25 @@ public class Colaborador extends Pessoa {
 	@JoinColumn(name = "cargo_id")
 	private Cargo cargo;
 	
+	@ManyToOne
+	@JoinColumn(name = "empresa_id")
+	@JsonBackReference
+	private Empresa empresa;
+	
 	private double remuneracao;
 	
 	private int diasAfastado;
 	private int diasFerias;
 	
 	//CONSTRUCTOR
-	public Colaborador(Long id, String nome, LocalDate nascimento, String cpf, String rg, Sexo sexo, Empresa empresa, int matricula, LocalDate dataAdmissao, Setor setor, Cargo cargo) {
-		super(id, nome, nascimento, cpf, rg, sexo, empresa);
-		this.matricula = matricula;
+	public Colaborador(Long id, String nome, LocalDate nascimento, String cpf, String rg, Sexo sexo, Empresa empresa, LocalDate dataAdmissao, Setor setor, Cargo cargo) {
+		this.id = id;
+		this.nome = nome;
+		this.nascimento = nascimento;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.sexo = sexo;
+		this.empresa = empresa;
 		this.dataAdmissao = dataAdmissao;
 		this.setor = setor;
 		this.cargo = cargo;
@@ -55,7 +86,6 @@ public class Colaborador extends Pessoa {
 		this.remuneracao = this.cargo.getNivelProfissional().getRemuneracao();
 	}
 	public Colaborador(ColaboradorDTO colaboradorDTO) {
-		super(colaboradorDTO);
 		BeanUtils.copyProperties(colaboradorDTO, this);
 	}
 	public Colaborador() {
@@ -63,15 +93,48 @@ public class Colaborador extends Pessoa {
 	}
 	
 	//GETTERS e SETTERS
-	public int getMatricula() {
-		return matricula;
-	}
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
-	}
 	
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public Sexo getSexo() {
+		return sexo;
+	}
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	public Long getId() {
+		return id;
 	}
 	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
@@ -153,24 +216,22 @@ public class Colaborador extends Pessoa {
 		double aumento = this.remuneracao * bonificacao / 100;
 		this.remuneracao += aumento;
 	}
-
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(matricula);
-		return result;
+		return Objects.hash(cargo, cpf);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
 		Colaborador other = (Colaborador) obj;
-		return matricula == other.matricula;
+		return Objects.equals(cargo, other.cargo) && Objects.equals(cpf, other.cpf);
 	}
+	
+	
+
 }

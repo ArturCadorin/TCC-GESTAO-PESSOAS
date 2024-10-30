@@ -1,0 +1,21 @@
+mat-nav-list {
+    margin-top: 50px;
+}
+
+.menu-items, .submenu-header, .submenu-item {
+    font-size: 18px;
+    color: #333;
+}
+
+.selected-menu-item {
+    background-color: #dce8f2;
+    color: #154c79;
+}
+
+.active-link {
+    font-weight: bold;
+}
+
+mat-icon {
+    margin-right: 8px;
+}

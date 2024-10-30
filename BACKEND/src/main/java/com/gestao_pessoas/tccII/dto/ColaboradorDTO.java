@@ -6,12 +6,20 @@ import org.springframework.beans.BeanUtils;
 
 import com.gestao_pessoas.tccII.entities.Cargo;
 import com.gestao_pessoas.tccII.entities.Colaborador;
+import com.gestao_pessoas.tccII.entities.Empresa;
 import com.gestao_pessoas.tccII.entities.Setor;
+import com.gestao_pessoas.tccII.enums.Sexo;
 import com.gestao_pessoas.tccII.enums.SituacaoColaborador;
 
-public class ColaboradorDTO extends PessoaDTO{
+public class ColaboradorDTO{
 	
-	private int matricula;
+	private Long id;
+	private String nome;
+	private LocalDate nascimento;
+	private String cpf;
+	private String rg;
+	private Sexo sexo;
+	private Empresa empresa;
 	private LocalDate dataAdmissao;
 	private LocalDate dataFinal;
 	private SituacaoColaborador situacaoColaborador;
@@ -28,11 +36,46 @@ public class ColaboradorDTO extends PessoaDTO{
 		
 	}
 	
-	public int getMatricula() {
-		return matricula;
+	
+	
+	public String getNome() {
+		return nome;
 	}
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public Sexo getSexo() {
+		return sexo;
+	}
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	public Long getId() {
+		return id;
 	}
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;

@@ -1,24 +1,9 @@
-mat-grid-tile{
-    border: 1px solid black;
-    border-radius: 4px;
+mat-card{
+    margin-top: 20px;
+    padding: 10px;
+    //height: 90%;
 }
-.header-content{
-    width: 100%;
-    background-color: rgb(231, 231, 231);
+.footer{
+    margin-top: 10px;
+    text-align: end;
 }
-.search{
-    width: 70%;
-    display: flex;
-}
-.search-form{
-    height: 14px;
-    margin-right: 10px;
-}
-.search-comp{
-    height: 70px;
-    width: 500px;
-}
-.buttons{
-    display: flex;
-    gap: 20px;
-} 
