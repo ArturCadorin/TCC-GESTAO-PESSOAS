@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 mat-dialog-title [style.font-weight]="'bold'">INATIVAR CADASTRO</h1>
+  <div mat-dialog-content>
+    <p>Tem certeza que deseja inativar este cadastro?</p>
+    <!-- Aqui você pode adicionar campos de formulário, etc. -->
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button (click)="onCancel()"><mat-icon>close</mat-icon>CANCELAR</button>
+    <button mat-flat-button color="primary" (click)="onSave()"><mat-icon>check</mat-icon>CONTINUAR</button>
+</div>
+</div>

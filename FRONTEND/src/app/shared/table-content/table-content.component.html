@@ -1,51 +1,95 @@
-<div class="header-container">
-    <mat-form-field>
-        <mat-label>Pesquisar</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input style="max-width: 600px;">
-    </mat-form-field>
-    <div class="filters-buttons">
-        <button mat-flat-button class="att-button" color="primary"><mat-icon>refresh</mat-icon>ATUALIZAR</button>
-        <button mat-flat-button class="add-button" color="accent" [style.color]="'white'" [style.margin-left]="'15px'"><mat-icon>add</mat-icon> INSERIR</button>
+<h1 [style.font-size]="'30px'" [style.color]="'#009688'" [style.font-weight]="'bold'">{{pageTitle | uppercase}}</h1>
+    <div class="header-container">
+      <mat-form-field>
+          <mat-label>Pesquisar</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nome, Documento..." #input style="max-width: 600px;">
+      </mat-form-field>
+      <div class="filters-buttons">
+          <button mat-flat-button class="add-button" color="primary" [style.color]="'white'" [style.margin-left]="'15px'" (click)="openInsertDialog()"><mat-icon>add</mat-icon> INSERIR</button>
+      </div>
     </div>
-</div>
-<div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-    </table>
-    <mat-paginator [length]="100"
-              [pageSize]="10"
-              aria-label="Select page"
-              showFirstLastButtons>
-    </mat-paginator>    
-</div>
+  
+    <div class="list-container">
+      <table mat-table [dataSource]="data" class="mat-elevation-z8">
+          <!-- Definindo as colunas dinamicamente -->
+          <ng-container *ngFor="let column of displayedColumns">
+            <ng-container [matColumnDef]="column">
+              <th mat-header-cell *matHeaderCellDef [style.color]="'#009688'" [style.font-weight]="'bold'">
+                {{ columnLabels[column] || (column | uppercase) }}
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <!-- Verifica qual coluna estamos lidando com ngSwitch -->
+                <ng-container [ngSwitch]="column">
+                  <!-- Exibe contagem para 'setores', 'cargos' ou 'colaboradores' -->
+                  <ng-container *ngSwitchCase="'setores'">
+                    {{ element[column]?.length || 0 }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'cargos'">
+                    {{ element[column]?.length || 0 }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'colaboradores'">
+                    {{ element[column]?.length || 0 }}
+                  </ng-container>
+                  
+                  <!-- Formata 'remuneracao' como moeda -->
+                  <ng-container *ngSwitchCase="'remuneracao'">
+                    {{ element[column] | currency: 'BRL':'symbol':'1.2-2' }}
+                  </ng-container>
+          
+                  <!-- Formata 'cpf' e 'rg' -->
+                  <ng-container *ngSwitchCase="'cpf'">
+                    {{ element[column] | cpf }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'rg'">
+                    {{ element[column] | rg }}
+                  </ng-container>
+          
+                  <!-- Formata data para colunas específicas -->
+                  <ng-container *ngSwitchCase="'dataInicial'">
+                    {{ element[column] | date: 'dd/MM/yyyy' }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'dataAdmissao'">
+                    {{ element[column] | date: 'dd/MM/yyyy' }}
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'nascimento'">
+                    {{ element[column] | date: 'dd/MM/yyyy' }}
+                  </ng-container>
+          
+                  <!-- Exibe ícone de ação na coluna 'actions' -->
+                  <ng-container *ngSwitchCase="'actions'">
+                    <button mat-icon-button (click)="openEditDialog()">
+                      <mat-icon [style.color]="'#009688'">open_in_new</mat-icon> <!-- Altere para o ícone desejado -->
+                    </button>
+                    <button mat-icon-button (click)="openDeleteDialog()">
+                      <mat-icon [style.color]="'#b81414'">cancel</mat-icon> <!-- Altere para o ícone desejado -->
+                    </button>
+                  </ng-container>
+          
+                  <!-- Exibe valor em letras maiúsculas para outras colunas -->
+                  <ng-container *ngSwitchDefault>
+                    {{ element[column] | uppercase }}
+                  </ng-container>
+                </ng-container>
+              </td>
+            </ng-container>
+          </ng-container>
+                  
+          <!-- Definindo as linhas de cabeçalho e de dados -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+          <!-- Linha mostrada quando não há dados correspondentes -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns.length" style="padding-left: 15px;">
+              Nenhum resultado encontrado.
+            </td>
+          </tr>
+        </table>
+      <mat-paginator [length]="100"
+                [pageSize]="10"
+                aria-label="Select page"
+                class="paginator"
+                showFirstLastButtons
+                [style.color]="'#009688'">
+      </mat-paginator>    
+    </div>

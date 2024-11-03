@@ -16,7 +16,6 @@ import com.gestao_pessoas.tccII.entities.PlanoCarreira;
 import com.gestao_pessoas.tccII.entities.Setor;
 import com.gestao_pessoas.tccII.enums.NivelPlanoCarreira;
 import com.gestao_pessoas.tccII.enums.Sexo;
-import com.gestao_pessoas.tccII.enums.SituacaoColaborador;
 import com.gestao_pessoas.tccII.repositories.CargoRepository;
 import com.gestao_pessoas.tccII.repositories.ColaboradorRepository;
 import com.gestao_pessoas.tccII.repositories.EmpresaRepository;
@@ -75,7 +74,7 @@ public class TestConfig implements CommandLineRunner{
 				"Artur de Jesus Cadorin",
 				LocalDate.of(1995, 11, 24),
 				"09015912971", 
-				"5961451",
+				"419859160",
 				Sexo.MASCULINO,
 				emp1, 
 				LocalDate.now(), 

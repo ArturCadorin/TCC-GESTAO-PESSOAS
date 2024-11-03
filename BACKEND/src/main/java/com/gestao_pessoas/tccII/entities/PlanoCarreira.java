@@ -1,4 +1,4 @@
-	package com.gestao_pessoas.tccII.entities;
+package com.gestao_pessoas.tccII.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;

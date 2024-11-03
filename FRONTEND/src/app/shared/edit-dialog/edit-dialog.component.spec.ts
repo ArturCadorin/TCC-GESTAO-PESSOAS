@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidenavContentComponent } from './sidenav-content.component';
+import { EditDialogComponent } from './edit-dialog.component';
 
-describe('SidenavContentComponent', () => {
-  let component: SidenavContentComponent;
-  let fixture: ComponentFixture<SidenavContentComponent>;
+describe('EditDialogComponent', () => {
+  let component: EditDialogComponent;
+  let fixture: ComponentFixture<EditDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SidenavContentComponent]
+      imports: [EditDialogComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SidenavContentComponent);
+    fixture = TestBed.createComponent(EditDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

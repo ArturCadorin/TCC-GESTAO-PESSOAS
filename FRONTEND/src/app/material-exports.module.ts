@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,11 +14,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -31,7 +36,14 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatSort,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    RouterModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    CommonModule
   ],
   exports: [
     MatButtonModule,
@@ -47,7 +59,14 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatSort,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    RouterModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    CommonModule
   ]
 })
-export class MaterialModule { }
+export class MaterialExportsModule { }

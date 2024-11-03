@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetorComponent } from './setor.component';
+import { InsertDialogComponent } from './insert-dialog.component';
 
-describe('SetorComponent', () => {
-  let component: SetorComponent;
-  let fixture: ComponentFixture<SetorComponent>;
+describe('InsertDialogComponent', () => {
+  let component: InsertDialogComponent;
+  let fixture: ComponentFixture<InsertDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SetorComponent]
+      imports: [InsertDialogComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SetorComponent);
+    fixture = TestBed.createComponent(InsertDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

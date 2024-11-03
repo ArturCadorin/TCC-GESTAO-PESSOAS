@@ -1,0 +1,45 @@
+<mat-toolbar class="mat-elevation-z10" color="primary">
+    <img src="../../../assets/logo.png" alt="Logo">
+</mat-toolbar>
+<mat-sidenav-container >
+    <mat-sidenav opened mode="side">
+        <mat-nav-list>
+            <ng-container *ngFor="let item of menuItems()" class="container">
+                <!-- Item do menu principal -->
+                <mat-list-item
+                   class="menu-items"
+                   *ngIf="!item.children">
+                    <span>{{ item.label }}</span>
+                </mat-list-item>
+
+                <!-- Divider para separar itens -->
+
+                <!-- Item com submenu -->
+                <div *ngIf="item.children">
+                    <mat-list-item
+                       class="menu-items">
+                        <span>{{ item.label }}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <!-- Subitens -->
+                    <ng-container *ngFor="let child of item.children">
+                        <a mat-list-item
+                           [routerLink]="child.route"
+                           routerLinkActive="active-link"
+                           class="submenu-item">
+                            <mat-icon matListItemIcon>{{ child.icon }}</mat-icon>
+                            <span>{{ child.label }}</span>
+                        </a>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-card appearance="outlined" class="content">
+            <mat-card-content >
+                <router-outlet></router-outlet>
+            </mat-card-content>
+        </mat-card>
+    </mat-sidenav-content>
+</mat-sidenav-container>

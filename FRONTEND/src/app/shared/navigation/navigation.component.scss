@@ -1,0 +1,40 @@
+mat-toolbar img{
+    margin-left: 10px;
+    height: 60px;
+}
+mat-sidenav-container{
+    height: calc(100vh - 64px);
+    position: relative;
+    overflow: visible;
+}
+mat-nav-list{
+    margin-top: 5vh;
+    width: 10vw;
+}
+mat-sidenav{
+    box-shadow: 1px 1px 6px #009688;
+}
+.content{
+    margin: 30px;
+    max-height: 85vh;
+}
+a.active-link {
+    color: #1976d2; /* Cor do texto do link ativo */
+    font-weight: bold;
+    background-color: rgba(25, 118, 210, 0.1); /* Fundo leve para destacar o item ativo */
+    border-left: 4px solid #009688; /* Borda esquerda para indicar o item ativo */
+    padding-left: 12px; /* Ajuste de padding para alinhar com a borda */
+}
+/* Estilo específico para submenus ativos */
+a.submenu-item.active-link {
+    color: #009688;
+    font-weight: bold;
+    background-color: rgba(0, 150, 136, 0.05); /* Fundo mais leve para o submenu */
+    border-left: 3px solid #009688;
+    padding-left: 18px; /* Maior indentação para os subitens */
+}
+
+/* Efeito de hover para links */
+a.mat-list-item:hover {
+    background-color: rgba(0, 0, 0, 0.08); /* Fundo mais escuro ao passar o mouse */
+}
