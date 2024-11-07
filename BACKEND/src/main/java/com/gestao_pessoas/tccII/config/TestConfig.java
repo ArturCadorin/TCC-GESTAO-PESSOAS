@@ -43,12 +43,14 @@ public class TestConfig implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		//Empresa
-		Empresa emp1 = new Empresa(null, "Betha Sistemas", "99.921.233/0001-94", LocalDate.now());
+		Empresa emp1 = new Empresa("Betha Sistemas", "99921233000194");
+		Empresa emp2 = new Empresa("Betha Sistemas", "99921233000194");
 		empresaRepository.save(emp1);
+		empresaRepository.save(emp2);
 			
 		//Setor
-		Setor set1 = new Setor(null, "Serviços", "Setor de sucesso ao cliente", LocalDate.now(), emp1);
-		Setor set2 = new Setor(null, "Desenvolvimento", "Setor de programação e produto", LocalDate.now(), emp1);
+		Setor set1 = new Setor("Serviços", "Setor de sucesso ao cliente", emp1);
+		Setor set2 = new Setor("Desenvolvimento", "Setor de programação e produto", emp1);
 		List<Setor> setores = new ArrayList<>();
 		setores.add(set1);
 		setores.add(set2);
@@ -56,12 +58,12 @@ public class TestConfig implements CommandLineRunner{
 		setorRepository.saveAll(setores);
 		
 		//Plano de carreira
-		PlanoCarreira plano1 = new PlanoCarreira(null, "Plano geral", NivelPlanoCarreira.JUNIOR, 25000.00, LocalDate.now());
+		PlanoCarreira plano1 = new PlanoCarreira("Plano geral", NivelPlanoCarreira.JUNIOR, 25000.00);
 		planoCarreiraRepository.save(plano1);
-		
+
 		//Cargo
-		Cargo cargo1 = new Cargo(null, "Analista I", "Analista programadora blabla", LocalDate.now(), emp1, set1, plano1);
-		Cargo cargo2 = new Cargo(null, "Desenvolvedor I", "Programador pleno blabla", LocalDate.now(), emp1, set2, plano1);
+		Cargo cargo1 = new Cargo("Analista I", "Analista programadora blabla", emp1, set1, plano1);
+		Cargo cargo2 = new Cargo("Desenvolvedor I", "Programador pleno blabla",  emp1, set2, plano1);
 		List<Cargo> cargos = new ArrayList<>();
 		plano1.setCargos(cargos);
 		cargos.add(cargo1);
@@ -70,14 +72,12 @@ public class TestConfig implements CommandLineRunner{
 		
 		//Colaborador
 		Colaborador colaborador = new Colaborador(
-				null , 
 				"Artur de Jesus Cadorin",
 				LocalDate.of(1995, 11, 24),
-				"09015912971", 
+				"70528232096", 
 				"419859160",
 				Sexo.MASCULINO,
 				emp1, 
-				LocalDate.now(), 
 				set1, 
 				cargo1);	
 		colaboradorRepository.save(colaborador);

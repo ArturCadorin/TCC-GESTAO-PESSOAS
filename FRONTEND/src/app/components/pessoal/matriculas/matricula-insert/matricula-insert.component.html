@@ -1,0 +1,78 @@
+<div class="container">
+    <h2 mat-dialog-title [style.font-weight]="'bold'">Cadastro de Matrícula</h2>
+    
+    <mat-dialog-content>
+      <!-- Campo Nome -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="matricula.nome" required>
+        </mat-form-field>
+      </div>
+  
+      <!-- Campo Nascimento -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput [matDatepicker]="nascimentoPicker" [(ngModel)]="matricula.nascimento" required>
+          <mat-datepicker-toggle matSuffix [for]="nascimentoPicker"></mat-datepicker-toggle>
+          <mat-datepicker #nascimentoPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      
+      <!-- Campo Data de Admissão -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Data de Admissão</mat-label>
+          <input matInput [matDatepicker]="admissaoPicker" [(ngModel)]="matricula.dataAdmissao" required>
+          <mat-datepicker-toggle matSuffix [for]="admissaoPicker"></mat-datepicker-toggle>
+          <mat-datepicker #admissaoPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+        
+      <!-- Campo CPF -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>CPF</mat-label>
+          <input matInput [(ngModel)]="matricula.cpf" mask="000.000.000-00" required>
+        </mat-form-field>
+      </div>
+  
+  <!-- Campo RG com Máscara -->
+  <div class="form-container">
+    <mat-form-field appearance="fill">
+      <mat-label>RG</mat-label>
+      <input matInput type="text" [(ngModel)]="matricula.rg" mask="00.000.000-0" required>
+    </mat-form-field>
+  </div>
+  
+      <!-- Campo Sexo -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Sexo</mat-label>
+          <mat-select [(ngModel)]="matricula.sexo" required>
+            <mat-option value="MASCULINO">Masculino</mat-option>
+            <mat-option value="FEMININO">Feminino</mat-option>
+            <mat-option value="OUTRO">Outro</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Campo Remuneração -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Remuneração</mat-label>
+          <input matInput type="number" [(ngModel)]="matricula.remuneracao" required>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions>
+      <button mat-flat-button (click)="onCancel()"> 
+        <mat-icon>close</mat-icon> CANCELAR
+      </button>
+      <button mat-flat-button color="primary" (click)="onSave()">
+        <mat-icon>check</mat-icon> SALVAR
+      </button>
+    </mat-dialog-actions>
+</div>

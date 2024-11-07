@@ -1,5 +1,9 @@
 import { Routes } from '@angular/router';
 import { EmpresaComponent } from './components/estrutura/empresa/empresa/empresa.component';
+import { SetorComponent } from './components/estrutura/setor/setor/setor.component';
+import { CargoComponent } from './components/estrutura/cargo/cargo/cargo.component';
+import { MatriculasComponent } from './components/pessoal/matriculas/matriculas/matriculas.component';
+import { NiveisComponent } from './components/carreira/niveis/niveis/niveis.component';
 
 export const routes: Routes = [
     {
@@ -32,14 +36,14 @@ export const routes: Routes = [
             },
             {
                 path: 'setores',
-                component: EmpresaComponent,
+                component: SetorComponent,
                 data: {
                     title: 'Setores',
                 },
             },
             {
                 path: 'cargos',
-                component: EmpresaComponent,
+                component: CargoComponent,
                 data: {
                     title: 'Cargos',
                 },
@@ -51,7 +55,7 @@ export const routes: Routes = [
         children: [
             {
                 path: 'matriculas',
-                component: EmpresaComponent,
+                component: MatriculasComponent,
                 data: {
                     title: 'Matrículas',
                 },
@@ -63,7 +67,7 @@ export const routes: Routes = [
         children: [
             {   
                 path: 'plano-carreira',
-                component: EmpresaComponent,
+                component: NiveisComponent,
                 data: {
                     title: 'Plano de Carreira',
                 },

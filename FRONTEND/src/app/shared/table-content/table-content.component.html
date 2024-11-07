@@ -36,13 +36,17 @@
                     {{ element[column] | currency: 'BRL':'symbol':'1.2-2' }}
                   </ng-container>
           
-                  <!-- Formata 'cpf' e 'rg' -->
+                  <!-- Formata 'cpf', 'rg' e 'cnpj'-->
                   <ng-container *ngSwitchCase="'cpf'">
                     {{ element[column] | cpf }}
                   </ng-container>
                   <ng-container *ngSwitchCase="'rg'">
                     {{ element[column] | rg }}
                   </ng-container>
+                  <ng-container *ngSwitchCase="'cnpj'">
+                    {{ element[column] | cnpj }}
+                  </ng-container>
+                  
           
                   <!-- Formata data para colunas específicas -->
                   <ng-container *ngSwitchCase="'dataInicial'">

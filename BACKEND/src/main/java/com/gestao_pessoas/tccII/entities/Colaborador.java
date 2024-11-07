@@ -1,5 +1,6 @@
 package com.gestao_pessoas.tccII.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ import jakarta.validation.constraints.*;
 @Entity
 @Table(name = "tb_colaborador")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Colaborador {
+public class Colaborador implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -71,15 +72,14 @@ public class Colaborador {
 	private int diasFerias;
 	
 	//CONSTRUCTOR
-	public Colaborador(Long id, String nome, LocalDate nascimento, String cpf, String rg, Sexo sexo, Empresa empresa, LocalDate dataAdmissao, Setor setor, Cargo cargo) {
-		this.id = id;
+	public Colaborador(String nome, LocalDate nascimento, String cpf, String rg, Sexo sexo, Empresa empresa, Setor setor, Cargo cargo) {
 		this.nome = nome;
 		this.nascimento = nascimento;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.sexo = sexo;
 		this.empresa = empresa;
-		this.dataAdmissao = dataAdmissao;
+		this.dataAdmissao = LocalDate.now();
 		this.setor = setor;
 		this.cargo = cargo;
 		this.situacaoColaborador = SituacaoColaborador.TRABALHANDO;

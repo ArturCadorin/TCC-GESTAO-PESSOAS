@@ -18,7 +18,7 @@ import jakarta.validation.constraints.*;
 @Entity
 @Table(name = "tb_empresa")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Empresa implements Serializable{
+public class Empresa implements Serializable{	
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,9 +31,7 @@ public class Empresa implements Serializable{
 	private String nome;
 	
 	@NotNull(message = "O CNPJ não pode ser nulo.")
-	@Size(min = 14, max = 20)
-	@Pattern(regexp = "^\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}$|^\\d{14}$",
-    		message = "O CNPJ deve estar no formato 00.000.000/0001-00 ou conter 14 números")
+	@Size(min = 14, max = 14, message = "O CNPJ deve conter 14 números")
 	private String cnpj;
 	
 	@NotNull(message = "A data inicial não pode ser nula.")
@@ -51,11 +49,10 @@ public class Empresa implements Serializable{
 	private List<Colaborador> colaboradores;
 	
 	//CONSTRUCTORS
-	public Empresa(Long id, String nome, String cnpj, LocalDate dataInicial) {
-		this.id = id;
+	public Empresa(String nome, String cnpj) {
 		this.nome = nome;
 		this.cnpj = cnpj;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 	}
 	public Empresa(EmpresaDTO empresaDTO) {
 		BeanUtils.copyProperties(empresaDTO, this);

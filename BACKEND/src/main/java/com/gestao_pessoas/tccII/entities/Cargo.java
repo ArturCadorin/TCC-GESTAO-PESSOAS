@@ -55,26 +55,23 @@ public class Cargo implements Serializable{
 	private Empresa empresa;
 	
 	//CONSTRUCTORS
-	public Cargo(Long id, String nome, String descricao, LocalDate dataInicial) {
-		this.id = id;
+	public Cargo(String nome, String descricao) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 	}
-	public Cargo(Long id, String nome, String descricao, LocalDate dataInicial, Empresa empresa, Setor setor, PlanoCarreira nivelProfissional) {
-		this.id = id;
+	public Cargo(String nome, String descricao, Empresa empresa, Setor setor, PlanoCarreira nivelProfissional) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 		this.empresa = empresa;
 		this.setor = setor;
 		this.nivelProfissional = nivelProfissional;
 	}
-	public Cargo(Long id, String nome, String descricao, LocalDate dataInicial, Empresa empresa,  Setor setor, PlanoCarreira nivelProfissional, List<Colaborador> colaboradores) {
-		this.id = id;
+	public Cargo(String nome, String descricao, Empresa empresa,  Setor setor, PlanoCarreira nivelProfissional, List<Colaborador> colaboradores) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 		this.empresa = empresa;
 		this.setor = setor;
 		this.nivelProfissional = nivelProfissional;

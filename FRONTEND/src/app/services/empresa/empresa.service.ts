@@ -15,4 +15,9 @@ export class EmpresaService {
   getAll(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(this.apiUrl);
   }
+
+    // Método para criar uma nova empresa
+  createEmpresa(empresa: Empresa): Observable<Empresa> {
+    return this.http.post<Empresa>(this.apiUrl, empresa);
+  }
 }

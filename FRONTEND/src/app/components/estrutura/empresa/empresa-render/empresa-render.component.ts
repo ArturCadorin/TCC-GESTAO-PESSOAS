@@ -3,6 +3,8 @@ import { TableContentComponent } from '../../../../shared/table-content/table-co
 import { Empresa } from '../../../../models/empresa';
 import { EmpresaService } from '../../../../services/empresa/empresa.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { EmpresaInsertComponent } from '../empresa-insert/empresa-insert.component';
 
 @Component({
   selector: 'app-empresa-render',
@@ -15,14 +17,15 @@ export class EmpresaRenderComponent {
 
   empresas: Empresa[] = []
   pageTitle: string = "Empresas"
+  dialogComponent = EmpresaInsertComponent; // Defina o componente de diálogo aqui
 
   camposEmpresa = [
-    { label: 'NOME', type: 'input', value: '' },
-    { label: 'CNPJ', type: 'input', value: '' },
-    { label: 'DATA INICIAL', type: 'date', value: '' }
+    { name: 'nome', label: 'Nome', type: 'input', required: true },
+    { name: 'cnpj', label: 'CNPJ', type: 'input', required: true, pattern: /^\d{14}$/ },
+    { name: 'dataInicial', label: 'Data Inicial', type: 'date', required: true },
   ];
 
-  constructor(private empresaService: EmpresaService){}
+  constructor(private empresaService: EmpresaService, private dialog: MatDialog){}
   
   ngOnInit(): void {
     this.getEmpresas();
@@ -34,5 +37,4 @@ export class EmpresaRenderComponent {
       this.empresas = empresas;
   });
   }
-
 }

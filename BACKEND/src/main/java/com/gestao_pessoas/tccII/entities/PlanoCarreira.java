@@ -43,12 +43,11 @@ public class PlanoCarreira implements Serializable{
 	private List<Cargo> cargos;
 	
 	//CONSTRUCTOR
-	public PlanoCarreira(Long id, String nome, NivelPlanoCarreira nivel, double remuneracao, LocalDate dataInicial) {
-		this.id = id;
+	public PlanoCarreira(String nome, NivelPlanoCarreira nivel, double remuneracao) {
 		this.nome = nome;
 		this.nivel = nivel;
 		this.remuneracao = remuneracao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 	}
 	public PlanoCarreira(PlanoCarreiraDTO planoCarreiraDTO) {
 		BeanUtils.copyProperties(planoCarreiraDTO, this);

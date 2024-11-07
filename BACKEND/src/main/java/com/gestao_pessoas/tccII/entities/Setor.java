@@ -51,26 +51,23 @@ public class Setor implements Serializable{
 	private Empresa empresa;
 	
 	//CONSTRUCTORS
-	public Setor(Long id, String nome, String descricao, LocalDate dataInicial, Empresa empresa) {
-		this.id = id;
+	public Setor(String nome, String descricao, Empresa empresa) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 		this.empresa = empresa;
 	}
-	public Setor(Long id, String nome, String descricao, LocalDate dataInicial, Empresa empresa, List<Cargo> cargos) {
-		this.id = id;
+	public Setor(String nome, String descricao, Empresa empresa, List<Cargo> cargos) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 		this.cargos = cargos;
 		this.empresa = empresa;
 	}
-	public Setor(Long id, String nome, String descricao, LocalDate dataInicial, Empresa empresa, List<Cargo> cargos, List<Colaborador> colaboradores) {
-		this.id = id;
+	public Setor(String nome, String descricao, Empresa empresa, List<Cargo> cargos, List<Colaborador> colaboradores) {
 		this.nome = nome;
 		this.descricao = descricao;
-		this.dataInicial = dataInicial;
+		this.dataInicial = LocalDate.now();
 		this.cargos = cargos;
 		this.colaboradores = colaboradores;
 		this.empresa = empresa;

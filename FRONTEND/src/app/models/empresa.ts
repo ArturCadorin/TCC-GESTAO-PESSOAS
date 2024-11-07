@@ -1,5 +1,5 @@
 export interface Empresa {
-    id: number;
+    id?: number;
     nome: string;
     cnpj: string;
     dataInicial: string;

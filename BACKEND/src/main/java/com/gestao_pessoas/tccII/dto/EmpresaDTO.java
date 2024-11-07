@@ -23,12 +23,14 @@ public class EmpresaDTO {
 	public EmpresaDTO(Empresa empresa) {
 		BeanUtils.copyProperties(empresa, this);
 	}
+    public EmpresaDTO() {
+    }
 
 	public Long getId() {
 		return id;
 	}
 	
-	public String getNome() {
+	public String getNome() {	
 		return nome;
 	}
 
