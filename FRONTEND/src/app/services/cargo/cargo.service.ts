@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cargo } from '../../models/cargo';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +17,13 @@ export class CargoService {
     return this.http.get<Cargo[]>(this.apiUrl);
   }
 
-  // Método para criar uma nova empresa
+  // Método para criar uma nova cargo
   createCargo(cargo: Cargo): Observable<Cargo> {
     return this.http.post<Cargo>(this.apiUrl, cargo);
+  }
+
+  // Deletar cargo
+  deleteCargo(id: number){
+    return this.http.delete<Cargo>(`${this.apiUrl}/${id}`)
   }
 }

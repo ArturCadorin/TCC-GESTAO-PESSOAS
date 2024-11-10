@@ -36,8 +36,12 @@ public class ColaboradorDTO{
 		
 	}
 	
-	
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -73,9 +77,6 @@ public class ColaboradorDTO{
 	}
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
-	}
-	public Long getId() {
-		return id;
 	}
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;

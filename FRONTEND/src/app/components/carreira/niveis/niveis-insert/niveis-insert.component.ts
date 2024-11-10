@@ -3,13 +3,15 @@ import { Nives } from '../../../../models/Niveis';
 import { NiveisService } from '../../../../services/niveis/niveis.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MaterialExportsModule } from '../../../../material-exports.module';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-niveis-insert',
   standalone: true,
-  imports: [MaterialExportsModule],
+  imports: [MaterialExportsModule, NgxMaskDirective, NgxMaskPipe],
+  providers: [provideNgxMask()],
   templateUrl: './niveis-insert.component.html',
-  styleUrl: './niveis-insert.component.scss'
+  styleUrls: ['./niveis-insert.component.scss', '../../../../../styles/insert.scss']
 })
 export class NiveisInsertComponent {
 

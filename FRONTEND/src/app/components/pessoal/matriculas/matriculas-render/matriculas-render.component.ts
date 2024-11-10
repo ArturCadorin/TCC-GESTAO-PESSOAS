@@ -4,6 +4,7 @@ import { MatriculasService } from '../../../../services/matriculas/matriculas.se
 import { MatDialog } from '@angular/material/dialog';
 import { TableContentComponent } from '../../../../shared/table-content/table-content.component';
 import { MatriculaInsertComponent } from '../matricula-insert/matricula-insert.component';
+import { MatriculasDeleteComponent } from '../matriculas-delete/matriculas-delete.component';
 
 @Component({
   selector: 'app-matriculas-render',
@@ -16,7 +17,8 @@ export class MatriculasRenderComponent {
 
   matriculas: Matriculas[] = []
   pageTitle: string = "Matriculas"
-  dialogComponent = MatriculaInsertComponent;
+  insertDialogComponent = MatriculaInsertComponent;
+  deleteDialogComponent = MatriculasDeleteComponent;
 
   camposMatricula = [
     { label: 'ID', type:'input', value: ''},

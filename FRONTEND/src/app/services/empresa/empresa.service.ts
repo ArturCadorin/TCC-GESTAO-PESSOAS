@@ -12,12 +12,18 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
+  // Retornar todas as empresas
   getAll(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(this.apiUrl);
   }
 
-    // Método para criar uma nova empresa
+  // Método para criar uma nova empresa
   createEmpresa(empresa: Empresa): Observable<Empresa> {
     return this.http.post<Empresa>(this.apiUrl, empresa);
+  }
+
+  // Deletar empresa
+  deleteEmpresa(id: number){
+    return this.http.delete<Empresa>(`${this.apiUrl}/${id}`)
   }
 }

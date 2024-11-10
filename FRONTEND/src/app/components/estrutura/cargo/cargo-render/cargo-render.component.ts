@@ -4,6 +4,7 @@ import { CargoService } from '../../../../services/cargo/cargo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TableContentComponent } from '../../../../shared/table-content/table-content.component';
 import { CargoInsertComponent } from '../cargo-insert/cargo-insert.component';
+import { CargoDeleteComponent } from '../cargo-delete/cargo-delete.component';
 
 @Component({
   selector: 'app-cargo-render',
@@ -16,7 +17,8 @@ export class CargoRenderComponent {
 
   cargos: Cargo[] = []
   pageTitle: string = "Cargos"
-  dialogComponent = CargoInsertComponent;
+  insertDialogComponent = CargoInsertComponent;
+  deleteDialogComponent = CargoDeleteComponent;
 
   camposCargo = [
     { label: 'ID', type:'input', value: ''},

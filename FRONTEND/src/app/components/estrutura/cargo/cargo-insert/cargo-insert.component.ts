@@ -9,7 +9,7 @@ import { MaterialExportsModule } from '../../../../material-exports.module';
   standalone: true,
   imports: [MaterialExportsModule],
   templateUrl: './cargo-insert.component.html',
-  styleUrl: './cargo-insert.component.scss'
+  styleUrls: ['./cargo-insert.component.scss', '../../../../../styles/insert.scss']
 })
 export class CargoInsertComponent {
 

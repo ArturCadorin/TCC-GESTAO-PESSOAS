@@ -20,4 +20,9 @@ export class MatriculasService {
   createMatricula(matricula: Matriculas): Observable<Matriculas> {
     return this.http.post<Matriculas>(this.apiUrl, matricula);
   }
+
+  // Deletar empresa
+  deleteMatricula(id: number){
+    return this.http.delete<Matriculas>(`${this.apiUrl}/${id}`)
+  }
 }

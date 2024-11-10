@@ -1,0 +1,8 @@
+<div class="delete-container">
+    <h2>{{ data.title }}</h2>
+    <p>Tem certeza de que deseja excluir a matrícula?</p>
+    <div class="delete-buttons">
+        <button mat-flat-button (click)="closeDialog()"><mat-icon>close</mat-icon>CANCELAR</button>
+        <button mat-flat-button (click)="onDelete()" color="primary"><mat-icon>check</mat-icon>CONFIRMAR</button>
+    </div>
+</div>

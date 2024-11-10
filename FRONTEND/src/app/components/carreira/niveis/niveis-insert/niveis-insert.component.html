@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 mat-dialog-title [style.font-weight]="'bold'">Cadastro de Nível</h2>
+    <h2 mat-dialog-title class="insert-title">Cadastro de Nível</h2>
   
     <mat-dialog-content>
       <!-- Campo Nome -->
@@ -30,6 +30,10 @@
             matInput 
             type="text" 
             [(ngModel)]="niveis.remuneracao" 
+            mask="separator.2" 
+            thousandSeparator="." 
+            decimalMarker="," 
+            prefix="R$ " 
             required>
         </mat-form-field>
       </div>

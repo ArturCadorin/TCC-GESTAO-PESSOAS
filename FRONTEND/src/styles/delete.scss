@@ -1,0 +1,16 @@
+  // DELETE-DIALOG
+
+.delete-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 15px;
+    background-color: #f9f9f9;
+}
+.delete-buttons{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}

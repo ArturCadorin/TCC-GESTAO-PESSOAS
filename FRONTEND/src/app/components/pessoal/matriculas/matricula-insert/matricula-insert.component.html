@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 mat-dialog-title [style.font-weight]="'bold'">Cadastro de Matrícula</h2>
+    <h2 mat-dialog-title  class="insert-title">Cadastro de Matrícula</h2>
     
     <mat-dialog-content>
       <!-- Campo Nome -->
@@ -62,7 +62,15 @@
       <div class="form-container">
         <mat-form-field appearance="fill">
           <mat-label>Remuneração</mat-label>
-          <input matInput type="number" [(ngModel)]="matricula.remuneracao" required>
+          <input 
+            matInput 
+            type="text" 
+            [(ngModel)]="matricula.remuneracao" 
+            mask="separator.2" 
+            thousandSeparator="." 
+            decimalMarker="," 
+            prefix="R$ " 
+            required>
         </mat-form-field>
       </div>
     </mat-dialog-content>

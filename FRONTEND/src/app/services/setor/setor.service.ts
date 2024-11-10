@@ -16,8 +16,13 @@ export class SetorService {
     return this.http.get<Setor[]>(this.apiUrl);
   }
 
-  // Método para criar uma nova empresa
+  // Método para criar uma nova setor
   createSetor(setor: Setor): Observable<Setor> {
     return this.http.post<Setor>(this.apiUrl, setor);
+  }
+
+  // Deletar setor
+  deleteSetor(id: number){
+    return this.http.delete<Setor>(`${this.apiUrl}/${id}`)
   }
 }

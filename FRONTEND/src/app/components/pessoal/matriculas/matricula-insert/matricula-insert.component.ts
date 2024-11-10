@@ -11,7 +11,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
   imports: [MaterialExportsModule, NgxMaskDirective, NgxMaskPipe],
   providers: [provideNgxMask()],
   templateUrl: './matricula-insert.component.html',
-  styleUrl: './matricula-insert.component.scss'
+  styleUrls: ['./matricula-insert.component.scss']
 })
 export class MatriculaInsertComponent {
 

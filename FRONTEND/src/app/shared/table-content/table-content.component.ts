@@ -29,7 +29,8 @@ export class TableContentComponent {
   @Input() data: Element[] = []; // Dados a serem exibidos
   @Input() pageTitle: string = '';
   @Input() formFields: any[] = [];
-  @Input() dialogComponent!: any; // Novo Input para o componente de diálogo
+  @Input() insertDialogComponent!: any; // Novo Input para o componente de diálogo
+  @Input() deleteDialogComponent!: any; // Novo Input para o componente de diálogo
 
   columnLabels: { [key: string]: string } = {
     remuneracao: 'REMUNERAÇÃO',
@@ -60,8 +61,8 @@ export class TableContentComponent {
   }
 
   openInsertDialog(): void {
-    if (this.dialogComponent) {
-      const dialogRef = this.dialog.open(this.dialogComponent, {
+    if (this.insertDialogComponent) {
+      const dialogRef = this.dialog.open(this.insertDialogComponent, {
         width: '500px',
         height: '750px',
         data: {
@@ -69,16 +70,36 @@ export class TableContentComponent {
           fields: this.formFields,
         }
       });
-
       dialogRef.afterClosed().subscribe(result => {
         console.log('O diálogo foi fechado');
         // Aqui você pode lidar com o resultado se necessário
       });
     } else {
-      console.error("Componente de diálogo não especificado.");
+      console.error("Componente de diálogo   não especificado.");
     }
   }
 
+  openDeleteDialog(id: number): void {
+    if (id === undefined) {
+      console.error('ID não fornecido para a exclusão');
+      return;
+    }
+    const dialogRef = this.dialog.open(this.deleteDialogComponent, {
+      width: '500px', 
+      height: '300px',
+      data: { id, title: 'CONFIRMAR EXCLUSÃO' }, // Passando id diretamente
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Item deletado:', id);
+      } else {
+        console.log('A exclusão foi cancelada.');
+      }
+    });
+  }
+  
+  
   // Editando cadastro
   openEditDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
@@ -90,18 +111,6 @@ export class TableContentComponent {
       // Aqui você pode lidar com o resultado se necessário
     });
   }
-
-    // Editando cadastro
-    openDeleteDialog(): void {
-      const dialogRef = this.dialog.open(DeleteDialogComponent, {
-        width: '400px', // Defina a largura do diálogo
-      });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('O diálogo foi fechado');
-        // Aqui você pode lidar com o resultado se necessário
-      });
-    }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

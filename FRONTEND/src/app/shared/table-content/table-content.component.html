@@ -20,6 +20,11 @@
               <td mat-cell *matCellDef="let element">
                 <!-- Verifica qual coluna estamos lidando com ngSwitch -->
                 <ng-container [ngSwitch]="column">
+                    <!-- Exibe o ID -->
+                  <ng-container *ngSwitchCase="'id'">
+                    {{ element[column] }}
+                  </ng-container>
+
                   <!-- Exibe contagem para 'setores', 'cargos' ou 'colaboradores' -->
                   <ng-container *ngSwitchCase="'setores'">
                     {{ element[column]?.length || 0 }}
@@ -47,7 +52,7 @@
                     {{ element[column] | cnpj }}
                   </ng-container>
                   
-          
+                  
                   <!-- Formata data para colunas específicas -->
                   <ng-container *ngSwitchCase="'dataInicial'">
                     {{ element[column] | date: 'dd/MM/yyyy' }}
@@ -64,7 +69,7 @@
                     <button mat-icon-button (click)="openEditDialog()">
                       <mat-icon [style.color]="'#009688'">open_in_new</mat-icon> <!-- Altere para o ícone desejado -->
                     </button>
-                    <button mat-icon-button (click)="openDeleteDialog()">
+                    <button mat-icon-button (click)="openDeleteDialog(element.id)">
                       <mat-icon [style.color]="'#b81414'">cancel</mat-icon> <!-- Altere para o ícone desejado -->
                     </button>
                   </ng-container>

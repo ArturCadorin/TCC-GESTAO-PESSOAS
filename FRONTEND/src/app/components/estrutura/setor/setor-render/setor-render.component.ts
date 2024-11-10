@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InsertDialogComponent } from '../../../../shared/insert-dialog/insert-dialog.component';
 import { TableContentComponent } from '../../../../shared/table-content/table-content.component';
 import { SetorInsertComponent } from '../setor-insert/setor-insert.component';
+import { SetorDeleteComponent } from '../setor-delete/setor-delete.component';
 
 @Component({
   selector: 'app-setor-render',
@@ -18,7 +19,8 @@ export class SetorRenderComponent {
 
   setores: Setor[] = []
   pageTitle: string = "Setores"
-  dialogComponent = SetorInsertComponent;
+  insertDialogComponent = SetorInsertComponent;
+  deleteDialogComponent = SetorDeleteComponent;
 
   camposSetor = [
     { label: 'ID', type:'input', value: ''},

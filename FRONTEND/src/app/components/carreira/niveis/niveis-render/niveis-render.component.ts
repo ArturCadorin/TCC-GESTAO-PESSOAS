@@ -6,6 +6,7 @@ import { NiveisService } from '../../../../services/niveis/niveis.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InsertDialogComponent } from '../../../../shared/insert-dialog/insert-dialog.component';
 import { NiveisInsertComponent } from '../niveis-insert/niveis-insert.component';
+import { NiveisDeleteComponent } from '../niveis-delete/niveis-delete.component';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class NiveisRenderComponent {
 
   niveis: Nives[] = []
   pageTitle: string = "Níveis"
-  dialogComponent = NiveisInsertComponent;
+  insertDialogComponent = NiveisInsertComponent;
+  deleteDialogComponent = NiveisDeleteComponent;
 
   camposNiveis = [
     {label: 'ID', type: 'input', value: ''},

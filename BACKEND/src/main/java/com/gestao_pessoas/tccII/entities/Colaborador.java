@@ -24,7 +24,7 @@ public class Colaborador implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull(message = "O nome não pode ser nulo.")
@@ -93,7 +93,12 @@ public class Colaborador implements Serializable{
 	}
 	
 	//GETTERS e SETTERS
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
@@ -132,9 +137,6 @@ public class Colaborador implements Serializable{
 	}
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
-	}
-	public Long getId() {
-		return id;
 	}
 	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;

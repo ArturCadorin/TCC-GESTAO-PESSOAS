@@ -10,7 +10,7 @@ import { MaterialExportsModule } from '../../../../material-exports.module';
   standalone: true,
   imports: [MaterialExportsModule],
   templateUrl: './setor-insert.component.html',
-  styleUrl: './setor-insert.component.scss'
+  styleUrls: ['./setor-insert.component.scss', '../../../../../styles/insert.scss']
 })
 export class SetorInsertComponent {
 

@@ -5,6 +5,7 @@ import { EmpresaService } from '../../../../services/empresa/empresa.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpresaInsertComponent } from '../empresa-insert/empresa-insert.component';
+import { EmpresaDeleteComponent } from '../empresa-delete/empresa-delete.component';
 
 @Component({
   selector: 'app-empresa-render',
@@ -17,7 +18,8 @@ export class EmpresaRenderComponent {
 
   empresas: Empresa[] = []
   pageTitle: string = "Empresas"
-  dialogComponent = EmpresaInsertComponent; // Defina o componente de diálogo aqui
+  insertDialogComponent = EmpresaInsertComponent; 
+  deleteDialogComponent = EmpresaDeleteComponent;
 
   camposEmpresa = [
     { name: 'nome', label: 'Nome', type: 'input', required: true },

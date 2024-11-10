@@ -1,0 +1,43 @@
+// INSERT-DIALOG
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; // Garante que o container se ajuste à tela
+    height: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; // Evita barras de rolagem internas
+  }
+  .form-container {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .insert-title{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+mat-dialog-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  button {
+    min-width: 120px;
+  }

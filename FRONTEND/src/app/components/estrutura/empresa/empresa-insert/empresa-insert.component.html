@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 mat-dialog-title [style.font-weight]="'bold'">Cadastro de Empresa</h2>
+    <h2 mat-dialog-title  class="insert-title">Cadastro de Empresa</h2>
     
     <mat-dialog-content>
       <!-- Campo Nome -->
@@ -14,7 +14,7 @@
       <div class="form-container">
         <mat-form-field appearance="fill">
           <mat-label>CNPJ</mat-label>
-          <input matInput [(ngModel)]="empresa.cnpj" required>
+          <input matInput [(ngModel)]="empresa.cnpj" mask="00.000.000/0000-00" required>
         </mat-form-field>
       </div>
   

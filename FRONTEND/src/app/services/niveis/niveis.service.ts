@@ -20,4 +20,9 @@ export class NiveisService {
   createNivel(niveis: Nives): Observable<Nives> {
     return this.http.post<Nives>(this.apiUrl, niveis);
   }
+ 
+  // Deletar empresa
+  deleteNivel(id: number){
+    return this.http.delete<Nives>(`${this.apiUrl}/${id}`)
+  }  
 }
