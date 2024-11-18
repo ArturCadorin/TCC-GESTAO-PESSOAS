@@ -31,6 +31,7 @@ public class SetorController {
 	@Autowired
 	private SetorService service;
 	
+	
 	@Operation(description = "Busca todos os setores.")
 	@GetMapping
 	public ResponseEntity<List<SetorDTO>> findAll(){

@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Garante que o container se ajuste à tela */
+  height: 100%;
+}
+
+mat-dialog-content {
+  width: 100%; /* Ajuste a largura do conteúdo dentro do diálogo */
+  max-width: 800px; /* Defina uma largura máxima para o conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  width: 100%; /* Garante que o card ocupe 100% da largura do mat-dialog-content */
+  padding: 16px;
+}
+mat-list-item {
+  display: flex;
+  justify-content: space-between; /* Alinha o texto e o valor */
+  margin-bottom: 8px; /* Espaçamento entre os itens */
+}
+
+h2 {
+  margin-bottom: 10px;
+  text-align: center; /* Centraliza o título */
+}
+
+.strong{
+  margin-right: 8px;
+}

@@ -21,8 +21,13 @@ export class MatriculasService {
     return this.http.post<Matriculas>(this.apiUrl, matricula);
   }
 
+  // Retornar empresa pelo ID
+  getMatriculaById(id: number) {
+    return this.http.get<Matriculas>(`${this.apiUrl}/${id}`);
+  }
+
   // Deletar empresa
   deleteMatricula(id: number){
     return this.http.delete<Matriculas>(`${this.apiUrl}/${id}`)
-  }
+  } 
 }

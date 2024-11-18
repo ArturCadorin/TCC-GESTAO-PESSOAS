@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { TableContentComponent } from '../../../../shared/table-content/table-content.component';
 import { Nives } from '../../../../models/Niveis';
-import { MatLabel } from '@angular/material/form-field';
 import { NiveisService } from '../../../../services/niveis/niveis.service';
 import { MatDialog } from '@angular/material/dialog';
-import { InsertDialogComponent } from '../../../../shared/insert-dialog/insert-dialog.component';
 import { NiveisInsertComponent } from '../niveis-insert/niveis-insert.component';
 import { NiveisDeleteComponent } from '../niveis-delete/niveis-delete.component';
+import { NiveisDetailComponent } from '../niveis-detail/niveis-detail.component';
 
 
 @Component({
@@ -22,6 +21,7 @@ export class NiveisRenderComponent {
   pageTitle: string = "Níveis"
   insertDialogComponent = NiveisInsertComponent;
   deleteDialogComponent = NiveisDeleteComponent;
+  detailDialogComponent = NiveisDetailComponent;
 
   camposNiveis = [
     {label: 'ID', type: 'input', value: ''},

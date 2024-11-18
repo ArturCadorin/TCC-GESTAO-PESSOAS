@@ -27,8 +27,33 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
+
+      <!-- Campo Empresa -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecione a Empresa</mat-label>
+          <mat-select [(ngModel)]="cargo.empresa" required>
+            <mat-option *ngFor="let empresa of empresas" [value]="empresa">
+            {{empresa.id}} - {{ empresa.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>   
+
+      <!-- Campo Setores -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecione o Setor</mat-label>
+          <mat-select [(ngModel)]="cargo.setor" required>
+            <mat-option *ngFor="let setor of setores" [value]="setor">
+            {{setor.id}} - {{ setor.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>   
+
     </mat-dialog-content>
-    
+
     <mat-dialog-actions>
       <button mat-flat-button (click)="onCancel()"> 
         <mat-icon>close</mat-icon> CANCELAR

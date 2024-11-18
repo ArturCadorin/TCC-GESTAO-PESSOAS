@@ -27,6 +27,18 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
+
+      <!-- Campo Empresa -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecione a Empresa</mat-label>
+          <mat-select [(ngModel)]="setor.empresa" required>
+            <mat-option *ngFor="let empresa of empresas" [value]="empresa.id">
+              {{empresa.id}} - {{ empresa.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>    
     </mat-dialog-content>
     
     <mat-dialog-actions>

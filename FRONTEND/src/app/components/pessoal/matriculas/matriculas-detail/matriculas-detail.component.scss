@@ -1,0 +1,15 @@
+.strong{
+    margin-right: 8px;
+}
+.content{
+    display: flex;
+    gap: 10px;
+}
+mat-card {
+    width: 100%; /* Garante que o card ocupe 100% da largura do mat-dialog-content */
+    padding: 16px;
+  }
+mat-dialog-actions{
+    align-items: center;
+    justify-content: center;
+}

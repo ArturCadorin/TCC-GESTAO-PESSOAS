@@ -3,9 +3,8 @@ export interface Empresa {
     nome: string;
     cnpj: string;
     dataInicial: string;
-    dataFinal?: string;
-    setores?: number;
-    cargos?: number;
-    colaboradores?: number;
+    setores?: any[];
+    cargos?: any[];
+    colaboradores?: any[];
     actions?: string;
 }

@@ -17,7 +17,7 @@ import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ColaboradorService {
-
+	
 	@Autowired
 	private ColaboradorRepository repository;
 	private final String entityName = "Colaborador";

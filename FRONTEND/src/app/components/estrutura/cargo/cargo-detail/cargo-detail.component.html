@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 mat-dialog-title class="insert-title">CARGO {{cargo.id}} - {{cargo.nome}}</h2>
+
+    <mat-dialog-content>
+        <mat-card>
+            <mat-list>
+                <mat-list-item><strong class="strong">ID:</strong> {{cargo.id}}</mat-list-item>
+                <mat-list-item><strong class="strong">NOME:</strong> {{cargo.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">DESCRIÇÃO:</strong> {{cargo.descricao}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA INICIAL:</strong> {{cargo.dataInicial | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA FINAL:</strong> {{cargo.dataFinal | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE COLABORADORES:</strong> {{totalColaboradores}}</mat-list-item>
+                <mat-list-item><strong class="strong">SETOR:</strong> {{cargo.setor?.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">EMPRESA:</strong> {{cargo.empresa?.nome}}</mat-list-item>
+            </mat-list>
+        </mat-card>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onCancel()"> 
+            <mat-icon>close</mat-icon> CANCELAR
+        </button>
+        <button mat-flat-button color="primary" (click)="onSave()">
+            <mat-icon>check</mat-icon> SALVAR
+        </button>
+    </mat-dialog-actions>
+</div>

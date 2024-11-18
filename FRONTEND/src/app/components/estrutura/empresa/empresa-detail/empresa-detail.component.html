@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 mat-dialog-title class="insert-title">EMPRESA {{empresa.id}} - {{empresa.nome}}</h2>
+
+    <mat-dialog-content>
+        <mat-card>
+            <mat-list>
+                <mat-list-item><strong class="strong">ID:</strong> {{empresa.id}}</mat-list-item>
+                <mat-list-item><strong class="strong">NOME:</strong> {{empresa.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">CNPJ:</strong> {{empresa.cnpj | cnpj}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA INICIAL:</strong> {{empresa.dataInicial | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE SETORES:</strong> {{totalSetores}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE CARGOS:</strong> {{totalCargos}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE COLABORADORES:</strong> {{totalColaboradores}}</mat-list-item>
+            </mat-list>
+        </mat-card>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onCancel()"> 
+            <mat-icon>close</mat-icon> CANCELAR
+        </button>
+        <button mat-flat-button color="primary" (click)="onSave()">
+            <mat-icon>check</mat-icon> SALVAR
+        </button>
+    </mat-dialog-actions>
+</div>

@@ -51,8 +51,7 @@
                   <ng-container *ngSwitchCase="'cnpj'">
                     {{ element[column] | cnpj }}
                   </ng-container>
-                  
-                  
+                                    
                   <!-- Formata data para colunas específicas -->
                   <ng-container *ngSwitchCase="'dataInicial'">
                     {{ element[column] | date: 'dd/MM/yyyy' }}
@@ -66,7 +65,7 @@
           
                   <!-- Exibe ícone de ação na coluna 'actions' -->
                   <ng-container *ngSwitchCase="'actions'">
-                    <button mat-icon-button (click)="openEditDialog()">
+                    <button mat-icon-button (click)="openEditDialog(element.id)">
                       <mat-icon [style.color]="'#009688'">open_in_new</mat-icon> <!-- Altere para o ícone desejado -->
                     </button>
                     <button mat-icon-button (click)="openDeleteDialog(element.id)">

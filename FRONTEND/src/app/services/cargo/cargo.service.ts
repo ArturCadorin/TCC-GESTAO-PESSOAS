@@ -22,6 +22,11 @@ export class CargoService {
     return this.http.post<Cargo>(this.apiUrl, cargo);
   }
 
+  // Retornar cargo pelo ID
+  getCargoById(id: number) {
+    return this.http.get<Cargo>(`${this.apiUrl}/${id}`);
+  }
+
   // Deletar cargo
   deleteCargo(id: number){
     return this.http.delete<Cargo>(`${this.apiUrl}/${id}`)

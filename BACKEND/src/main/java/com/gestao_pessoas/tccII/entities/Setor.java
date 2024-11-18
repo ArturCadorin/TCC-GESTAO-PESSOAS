@@ -7,8 +7,10 @@ import java.util.Objects;
 
 import org.springframework.beans.BeanUtils;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.gestao_pessoas.tccII.dto.SetorDTO;
 
@@ -47,7 +49,7 @@ public class Setor implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "empresa_id")
-	@JsonIgnore
+	@JsonBackReference
 	private Empresa empresa;
 	
 	//CONSTRUCTORS
@@ -129,6 +131,9 @@ public class Setor implements Serializable{
 	
 	public Empresa getEmpresa() {
 		return empresa;
+	}
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 	@Override
 	public int hashCode() {

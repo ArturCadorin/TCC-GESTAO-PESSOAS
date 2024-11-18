@@ -1,3 +1,7 @@
+import { Cargo } from "./cargo";
+import { Empresa } from "./empresa";
+import { Setor } from "./setor";
+
 export interface Matriculas{
     id?: number;
     nome: string;
@@ -5,11 +9,11 @@ export interface Matriculas{
     cpf: string;
     rg: string;
     sexo: string;
-    empresa?: string;
+    empresa?: Empresa;
     dataAdmissao: string;
     dataFinal?: string;
-    setor?: string;
-    cargos?: number;
+    setor?: Setor;
+    cargos?: Cargo;
     situacaoColaborador?: string;
     remuneracao?: number; 
 }

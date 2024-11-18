@@ -6,20 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpresaInsertComponent } from '../empresa-insert/empresa-insert.component';
 import { EmpresaDeleteComponent } from '../empresa-delete/empresa-delete.component';
+import { EmpresaDetailComponent } from '../empresa-detail/empresa-detail.component';
 
 @Component({
   selector: 'app-empresa-render',
   standalone: true,
-  imports: [TableContentComponent, HttpClientModule],
+  imports: [TableContentComponent, HttpClientModule, EmpresaDetailComponent],
   templateUrl: './empresa-render.component.html',
   styleUrl: './empresa-render.component.scss'
 })
+
 export class EmpresaRenderComponent {
 
   empresas: Empresa[] = []
   pageTitle: string = "Empresas"
   insertDialogComponent = EmpresaInsertComponent; 
   deleteDialogComponent = EmpresaDeleteComponent;
+  detailDialogComponent = EmpresaDetailComponent;
 
   camposEmpresa = [
     { name: 'nome', label: 'Nome', type: 'input', required: true },

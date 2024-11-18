@@ -21,6 +21,11 @@ export class SetorService {
     return this.http.post<Setor>(this.apiUrl, setor);
   }
 
+  // Retornar empresa pelo ID
+  getSetorById(id: number) {
+    return this.http.get<Setor>(`${this.apiUrl}/${id}`);
+  }
+
   // Deletar setor
   deleteSetor(id: number){
     return this.http.delete<Setor>(`${this.apiUrl}/${id}`)

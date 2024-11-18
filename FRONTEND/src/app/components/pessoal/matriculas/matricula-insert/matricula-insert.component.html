@@ -73,6 +73,42 @@
             required>
         </mat-form-field>
       </div>
+
+      <!-- Campo Empresa -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecione a Empresa</mat-label>
+          <mat-select [(ngModel)]="matricula.empresa" required>
+            <mat-option *ngFor="let empresa of empresas" [value]="empresa">
+            {{empresa.id}} - {{ empresa.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>   
+
+      <!-- Campo Setores -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecione o Setor</mat-label>
+          <mat-select [(ngModel)]="matricula.setor" required>
+            <mat-option *ngFor="let setor of setores" [value]="setor">
+            {{setor.id}} - {{ setor.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>   
+
+      <!-- Campo Cargos -->
+      <div class="form-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecione o Cargo</mat-label>
+          <mat-select [(ngModel)]="matricula.cargos" required>
+            <mat-option *ngFor="let cargo of cargos" [value]="cargo">
+            {{cargo.id}} - {{ cargo.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>  
     </mat-dialog-content>
     
     <mat-dialog-actions>

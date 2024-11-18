@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 mat-dialog-title class="insert-title">SETOR {{setor.id}} - {{setor.nome}}</h2>
+
+    <mat-dialog-content>
+        <mat-card>
+            <mat-list>
+                <mat-list-item><strong class="strong">ID:</strong> {{setor.id}}</mat-list-item>
+                <mat-list-item><strong class="strong">NOME:</strong> {{setor.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">DESCRIÇÃO:</strong> {{setor.descricao}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA INICIAL:</strong> {{setor.dataInicial | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA FINAL:</strong> {{setor.dataFinal | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE CARGOS:</strong> {{totalCargos}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE COLABORADORES:</strong> {{totalColaboradores}}</mat-list-item>
+                <mat-list-item><strong class="strong">EMPRESA:</strong> {{setor.empresa?.nome}}</mat-list-item>
+            </mat-list>
+        </mat-card>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onCancel()"> 
+            <mat-icon>close</mat-icon> CANCELAR
+        </button>
+        <button mat-flat-button color="primary" (click)="onSave()">
+            <mat-icon>check</mat-icon> SALVAR
+        </button>
+    </mat-dialog-actions>
+</div>

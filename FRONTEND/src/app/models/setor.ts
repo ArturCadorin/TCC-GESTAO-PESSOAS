@@ -1,11 +1,13 @@
+import { Empresa } from "./empresa";
+
 export interface Setor {
     id?: number;
     nome: string;
     descricao: string;
     dataInicial: string;
     dataFinal?: string;
-    cargos?: number;
-    colaboradores?: number;
+    cargos?: any[];
+    colaboradores?: any[];
     actions?: string;
-    empresa?: string;
+    empresa?: Empresa;
 }

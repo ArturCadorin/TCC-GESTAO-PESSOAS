@@ -13,6 +13,7 @@ import { provideNgxMask, NgxMaskPipe, NgxMaskDirective } from 'ngx-mask';
   templateUrl: './empresa-insert.component.html',
   styleUrls: ['./empresa-insert.component.scss', '../../../../../styles/insert.scss']
 })
+
 export class EmpresaInsertComponent {
 
   empresa: Empresa = {
@@ -27,11 +28,10 @@ export class EmpresaInsertComponent {
   ) {}
 
   onSave() {
-    // Chama o serviço para salvar a nova empresa com os dados preenchidos no formulário
     this.empresaService.createEmpresa(this.empresa).subscribe({
       next: (empresaSalva) => {
         console.log('Empresa salva com sucesso!', empresaSalva);
-        this.dialogRef.close(empresaSalva); // Fecha o diálogo e retorna a empresa criada
+        this.dialogRef.close(empresaSalva); 
       },
       error: (error) => {
         console.error('Erro ao salvar a empresa', error);
@@ -40,6 +40,7 @@ export class EmpresaInsertComponent {
   }
 
   onCancel() {
-    this.dialogRef.close(); // Fecha o diálogo sem salvar
+    this.dialogRef.close();
   }
+
 }

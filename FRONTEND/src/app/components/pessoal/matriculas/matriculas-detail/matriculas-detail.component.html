@@ -1,0 +1,32 @@
+<div class="container">
+    <h2 mat-dialog-title class="insert-title" style="text-align: center;">MATRICULA {{matricula.id}} - {{matricula.nome}}</h2>
+
+    <mat-dialog-content>
+        <mat-card>
+            <mat-list>
+                <mat-list-item><strong class="strong">ID:</strong> {{matricula.id}}</mat-list-item>
+                <mat-list-item><strong class="strong">NOME:</strong> {{matricula.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">NASCIMENTO:</strong> {{matricula.nascimento | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">CPF:</strong> {{matricula.cpf | cpf}}</mat-list-item>
+                <mat-list-item><strong class="strong">RG:</strong> {{matricula.rg | rg}}</mat-list-item>
+                <mat-list-item><strong class="strong">SEXO:</strong> {{matricula.sexo}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA DE ADMISSÃO:</strong>{{matricula.dataAdmissao | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA FINAL:</strong> {{matricula.dataFinal | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">SITUAÇÃO:</strong> {{matricula.situacaoColaborador}}</mat-list-item>
+                <mat-list-item><strong class="strong">EMPRESA:</strong> {{matricula.empresa?.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">SETOR:</strong> {{matricula.setor?.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">CARGO:</strong> {{matricula.cargos?.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">REMUNERAÇÃO:</strong> {{matricula.remuneracao | currency: 'BRL':'symbol':'1.2-2' }}</mat-list-item>
+            </mat-list>
+        </mat-card>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onCancel()"> 
+            <mat-icon>close</mat-icon> CANCELAR
+        </button>
+        <button mat-flat-button color="primary" (click)="onSave()">
+            <mat-icon>check</mat-icon> SALVAR
+        </button>
+    </mat-dialog-actions>
+</div>

@@ -3,10 +3,10 @@ import { Setor } from '../../../../models/setor';
 import { HttpClientModule } from '@angular/common/http';
 import { SetorService } from '../../../../services/setor/setor.service';
 import { MatDialog } from '@angular/material/dialog';
-import { InsertDialogComponent } from '../../../../shared/insert-dialog/insert-dialog.component';
 import { TableContentComponent } from '../../../../shared/table-content/table-content.component';
 import { SetorInsertComponent } from '../setor-insert/setor-insert.component';
 import { SetorDeleteComponent } from '../setor-delete/setor-delete.component';
+import { SetorDetailComponent } from '../setor-detail/setor-detail.component';
 
 @Component({
   selector: 'app-setor-render',
@@ -21,7 +21,8 @@ export class SetorRenderComponent {
   pageTitle: string = "Setores"
   insertDialogComponent = SetorInsertComponent;
   deleteDialogComponent = SetorDeleteComponent;
-
+  detailDialogComponent = SetorDetailComponent;
+  
   camposSetor = [
     { label: 'ID', type:'input', value: ''},
     { label: 'NOME', type: 'input', value: '' },

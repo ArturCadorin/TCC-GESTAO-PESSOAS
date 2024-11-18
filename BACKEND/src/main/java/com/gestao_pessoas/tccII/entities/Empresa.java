@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.gestao_pessoas.tccII.dto.EmpresaDTO;
 
@@ -38,6 +39,7 @@ public class Empresa implements Serializable{
 	private LocalDate dataInicial;
 	
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private List<Setor> setores;
 	
 	@OneToMany(mappedBy = "empresa")

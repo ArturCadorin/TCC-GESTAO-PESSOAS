@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 mat-dialog-title class="insert-title">NÍVEL {{niveis.id}} - {{niveis.nome}}</h2>
+
+    <mat-dialog-content>
+        <mat-card>
+            <mat-list>
+                <mat-list-item><strong class="strong">ID:</strong> {{niveis.id}}</mat-list-item>
+                <mat-list-item><strong class="strong">NOME:</strong> {{niveis.nome}}</mat-list-item>
+                <mat-list-item><strong class="strong">NÍVEL:</strong> {{niveis.nivel}}</mat-list-item>
+                <mat-list-item><strong class="strong">REMUNERAÇÃO:</strong> {{niveis.remuneracao | currency: 'BRL':'symbol':'1.2-2' }}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA INICIAL:</strong> {{niveis.dataInicial | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">DATA FINAL:</strong> {{niveis.dataFinal | date:'dd/MM/yyyy'}}</mat-list-item>
+                <mat-list-item><strong class="strong">QTD. DE CARGOS:</strong> {{totalCargos}}</mat-list-item>
+            </mat-list>
+        </mat-card>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onCancel()"> 
+            <mat-icon>close</mat-icon> CANCELAR
+        </button>
+        <button mat-flat-button color="primary" (click)="onSave()">
+            <mat-icon>check</mat-icon> SALVAR
+        </button>
+    </mat-dialog-actions>
+</div>

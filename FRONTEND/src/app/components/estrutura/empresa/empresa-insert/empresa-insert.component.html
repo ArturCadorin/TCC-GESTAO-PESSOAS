@@ -1,6 +1,6 @@
 <div class="container">
-    <h2 mat-dialog-title  class="insert-title">Cadastro de Empresa</h2>
-    
+    <h2 mat-dialog-title  class="insert-title">CADASTRO DE EMPRESA</h2>
+
     <mat-dialog-content>
       <!-- Campo Nome -->
       <div class="form-container">
@@ -9,7 +9,7 @@
           <input matInput [(ngModel)]="empresa.nome" required>
         </mat-form-field>
       </div>
-  
+
       <!-- Campo CNPJ -->
       <div class="form-container">
         <mat-form-field appearance="fill">
@@ -17,7 +17,7 @@
           <input matInput [(ngModel)]="empresa.cnpj" mask="00.000.000/0000-00" required>
         </mat-form-field>
       </div>
-  
+      
       <!-- Campo Data Inicial -->
       <div class="form-container">
         <mat-form-field appearance="fill">
@@ -28,7 +28,8 @@
         </mat-form-field>
       </div>
     </mat-dialog-content>
-    
+
+    <!-- Container de botões -->
     <mat-dialog-actions>
       <button mat-flat-button (click)="onCancel()"> 
         <mat-icon>close</mat-icon> CANCELAR
@@ -37,5 +38,5 @@
         <mat-icon>check</mat-icon> SALVAR
       </button>
     </mat-dialog-actions>
-  </div>
+</div>
   

@@ -4,6 +4,8 @@ import { NiveisService } from '../../../../services/niveis/niveis.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MaterialExportsModule } from '../../../../material-exports.module';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { Cargo } from '../../../../models/cargo';
+import { CargoService } from '../../../../services/cargo/cargo.service';
 
 @Component({
   selector: 'app-niveis-insert',
@@ -18,15 +20,33 @@ export class NiveisInsertComponent {
   niveis: Nives = {
     nome: '',
     nivel: '',
-    remuneracao: 0,
+    remuneracao: undefined,
     dataInicial: ''
   };
 
+  cargos: Cargo[] = [];
+  
   constructor(
+    private cargoService: CargoService,
     private niveisService: NiveisService,
     private dialogRef: MatDialogRef<NiveisInsertComponent>
   ) {}
 
+  ngOnInit(): void {
+    this.loadCargos();
+  }
+
+  loadCargos(): void {
+    this.cargoService.getAll().subscribe({
+      next: (cargos) => {
+        this.cargos = cargos;
+      },
+      error: (error) => {
+        console.error('Erro ao carregar os cargos', error);
+      }
+    });
+  }
+  
   onSave() {
     // Chama o serviço para salvar a nova empresa com os dados preenchidos no formulário
     this.niveisService.createNivel(this.niveis).subscribe({

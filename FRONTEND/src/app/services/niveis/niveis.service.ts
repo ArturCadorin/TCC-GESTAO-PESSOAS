@@ -21,6 +21,11 @@ export class NiveisService {
     return this.http.post<Nives>(this.apiUrl, niveis);
   }
  
+  // Retornar empresa pelo ID
+  getNivelById(id: number) {
+    return this.http.get<Nives>(`${this.apiUrl}/${id}`);
+  }
+
   // Deletar empresa
   deleteNivel(id: number){
     return this.http.delete<Nives>(`${this.apiUrl}/${id}`)

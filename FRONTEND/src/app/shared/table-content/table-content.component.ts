@@ -1,5 +1,5 @@
 import { MaterialExportsModule } from '../../material-exports.module';
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CpfPipe } from '../../pipes/cpf.pipe';
@@ -8,12 +8,9 @@ import { CnpjPipe } from '../../pipes/cnpj.pipe';
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EmpresaInsertComponent } from '../../components/estrutura/empresa/empresa-insert/empresa-insert.component';
-import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
-
 
 interface Element {
-  [key: string]: any; // Usando index signature para permitir chaves dinâmicas
+  [key: string]: any; 
 }
 
 @Component({
@@ -24,13 +21,15 @@ interface Element {
   styleUrl: './table-content.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class TableContentComponent {
-  @Input() displayedColumns: string[] = []; // Colunas a serem exibidas
-  @Input() data: Element[] = []; // Dados a serem exibidos
+  @Input() displayedColumns: string[] = []; 
+  @Input() data: Element[] = [];
   @Input() pageTitle: string = '';
   @Input() formFields: any[] = [];
-  @Input() insertDialogComponent!: any; // Novo Input para o componente de diálogo
-  @Input() deleteDialogComponent!: any; // Novo Input para o componente de diálogo
+  @Input() insertDialogComponent!: any; 
+  @Input() deleteDialogComponent!: any; 
+  @Input() detailDialogComponent!: any; 
 
   columnLabels: { [key: string]: string } = {
     remuneracao: 'REMUNERAÇÃO',
@@ -47,19 +46,19 @@ export class TableContentComponent {
     situacaoColaborador: 'SITUAÇÃO'
   };
 
-  dataSource = new MatTableDataSource<Element>([]); // Data source inicializado com dados vazios
+  dataSource = new MatTableDataSource<Element>([]);
 
   constructor (private dialog: MatDialog){};
 
   onActionClick(element: any) {
     console.log("Ação para o item:", element);
-    // Adicione aqui a lógica da ação desejada (ex: excluir, editar, etc.)
   }
   
   ngOnInit() {
-    this.dataSource.data = this.data; // Atribuindo os dados recebidos
+    this.dataSource.data = this.data;
   }
 
+  // BOTÃO DE INSERIR 
   openInsertDialog(): void {
     if (this.insertDialogComponent) {
       const dialogRef = this.dialog.open(this.insertDialogComponent, {
@@ -72,13 +71,13 @@ export class TableContentComponent {
       });
       dialogRef.afterClosed().subscribe(result => {
         console.log('O diálogo foi fechado');
-        // Aqui você pode lidar com o resultado se necessário
       });
     } else {
       console.error("Componente de diálogo   não especificado.");
     }
   }
 
+  // BOTÃO DE DELETAR
   openDeleteDialog(id: number): void {
     if (id === undefined) {
       console.error('ID não fornecido para a exclusão');
@@ -87,7 +86,7 @@ export class TableContentComponent {
     const dialogRef = this.dialog.open(this.deleteDialogComponent, {
       width: '500px', 
       height: '300px',
-      data: { id, title: 'CONFIRMAR EXCLUSÃO' }, // Passando id diretamente
+      data: { id, title: 'CONFIRMAR EXCLUSÃO' },
     });
   
     dialogRef.afterClosed().subscribe(result => {
@@ -98,22 +97,31 @@ export class TableContentComponent {
       }
     });
   }
-  
-  
-  // Editando cadastro
-  openEditDialog(): void {
-    const dialogRef = this.dialog.open(EditDialogComponent, {
-      width: '400px', // Defina a largura do diálogo
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('O diálogo foi fechado');
-      // Aqui você pode lidar com o resultado se necessário
-    });
+  // BOTÃO DE DETALHES
+  openEditDialog(id: number): void {
+    if (this.detailDialogComponent) {
+      const dialogRef = this.dialog.open(this.detailDialogComponent, {
+        width: '500px',
+        height: '750px',
+        data: {
+          title: 'DETALHES',
+          fields: this.formFields,
+          id: id 
+        }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('O diálogo foi fechado');
+      });
+    } else {
+      console.error("Componente de diálogo não especificado.");
+    }
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 }
