@@ -1,4 +1,6 @@
+import { Cargo } from "./cargo";
 import { Empresa } from "./empresa";
+import { Matriculas } from "./matriculas";
 
 export interface Setor {
     id?: number;
@@ -7,7 +9,7 @@ export interface Setor {
     dataInicial: string;
     dataFinal?: string;
     cargos?: any[];
-    colaboradores?: any[];
+    colaboradores?: Matriculas[];
     actions?: string;
     empresa?: Empresa;
 }

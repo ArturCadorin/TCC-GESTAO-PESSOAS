@@ -2,6 +2,7 @@ package com.gestao_pessoas.tccII.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,17 +39,17 @@ public class Empresa implements Serializable{
 	@NotNull(message = "A data inicial não pode ser nula.")
 	private LocalDate dataInicial;
 	
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL,  orphanRemoval = true)
 	@JsonManagedReference
-	private List<Setor> setores;
+	private List<Setor> setores = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore
-	private List<Cargo> cargos;
+	private List<Cargo> cargos = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore
-	private List<Colaborador> colaboradores;
+	private List<Colaborador> colaboradores = new ArrayList<>();
 	
 	//CONSTRUCTORS
 	public Empresa(String nome, String cnpj) {

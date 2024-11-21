@@ -25,7 +25,7 @@ public class PlanoCarreira implements Serializable{
 	private Long id;
 	
 	@NotNull(message = "O nome não pode ser nulo.")
-	@Size(min = 2, max = 20, message = "O nome deve ter entre 2 e 20 caracteres.")
+	@Size(min = 2, max = 40, message = "O nome deve ter entre 2 e 40 caracteres.")
 	private String nome;
 	
 	@Enumerated(EnumType.STRING)

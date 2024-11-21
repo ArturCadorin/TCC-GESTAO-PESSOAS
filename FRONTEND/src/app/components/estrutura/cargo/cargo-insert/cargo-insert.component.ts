@@ -9,7 +9,7 @@ import { EmpresaService } from '../../../../services/empresa/empresa.service';
 import { SetorService } from '../../../../services/setor/setor.service';
 
 @Component({
-  selector: 'app-cargo-insert',
+  selector: 'app-cargo-insert', 
   standalone: true,
   imports: [MaterialExportsModule],
   templateUrl: './cargo-insert.component.html',

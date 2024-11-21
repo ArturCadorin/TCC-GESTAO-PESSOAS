@@ -38,14 +38,15 @@ export class MatriculasDetailComponent {
   ) {}
   
   ngOnInit(): void {
-    this.loadCargoData(this.data.id); // Carrega os dados ao iniciar o componente
+    this.loadMatriculaData(this.data.id); // Carrega os dados ao iniciar o componente
   }
 
   
-  loadCargoData(id: number): void {
+  loadMatriculaData(id: number): void {
     this.matriculaService.getMatriculaById(id).subscribe({
       next: (matricula) => {
         this.matricula = matricula;
+        console.log(matricula);
       },
       error: (error) => {
         console.error('Erro ao carregar a matricula', error);

@@ -56,6 +56,9 @@
                   <ng-container *ngSwitchCase="'dataInicial'">
                     {{ element[column] | date: 'dd/MM/yyyy' }}
                   </ng-container>
+                  <ng-container *ngSwitchCase="'dataFinal'">
+                    {{ element[column]  || '-' }}
+                  </ng-container>
                   <ng-container *ngSwitchCase="'dataAdmissao'">
                     {{ element[column] | date: 'dd/MM/yyyy' }}
                   </ng-container>

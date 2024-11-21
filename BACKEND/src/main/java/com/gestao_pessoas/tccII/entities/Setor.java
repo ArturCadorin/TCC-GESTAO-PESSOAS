@@ -2,6 +2,7 @@ package com.gestao_pessoas.tccII.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,7 +11,6 @@ import org.springframework.beans.BeanUtils;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.gestao_pessoas.tccII.dto.SetorDTO;
 
@@ -40,12 +40,12 @@ public class Setor implements Serializable{
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;
 	
-	@OneToMany(mappedBy = "setor", cascade = CascadeType.ALL)
-	private List<Cargo> cargos;
+	@OneToMany(mappedBy = "setor", cascade = CascadeType.ALL,  orphanRemoval = true)
+	private List<Cargo> cargos = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "setor")
+	@OneToMany(mappedBy = "setor", cascade = CascadeType.ALL,  orphanRemoval = true)
 	@JsonIgnore
-	private List<Colaborador> colaboradores;
+	private List<Colaborador> colaboradores = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name = "empresa_id")

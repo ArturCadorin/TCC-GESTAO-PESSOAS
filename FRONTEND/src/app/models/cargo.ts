@@ -1,4 +1,5 @@
 import { Empresa } from "./empresa";
+import { Matriculas } from "./matriculas";
 import { Setor } from "./setor";
 
 export interface Cargo {
@@ -8,6 +9,6 @@ export interface Cargo {
     dataInicial: string;
     dataFinal?: string;
     setor?: Setor;
-    colaboradores?: any[];
+    colaboradores?: Matriculas[];
     empresa?: Empresa;
 }

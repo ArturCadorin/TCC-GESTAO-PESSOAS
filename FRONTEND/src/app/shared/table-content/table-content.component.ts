@@ -71,6 +71,7 @@ export class TableContentComponent {
       });
       dialogRef.afterClosed().subscribe(result => {
         console.log('O diálogo foi fechado');
+        window.location.reload();
       });
     } else {
       console.error("Componente de diálogo   não especificado.");
@@ -92,6 +93,7 @@ export class TableContentComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('Item deletado:', id);
+        window.location.reload();
       } else {
         console.log('A exclusão foi cancelada.');
       }
@@ -110,9 +112,9 @@ export class TableContentComponent {
           id: id 
         }
       });
-  
       dialogRef.afterClosed().subscribe(result => {
         console.log('O diálogo foi fechado');
+        window.location.reload();
       });
     } else {
       console.error("Componente de diálogo não especificado.");

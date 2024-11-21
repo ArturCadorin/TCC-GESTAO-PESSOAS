@@ -34,7 +34,7 @@ public class Colaborador implements Serializable{
 	@NotNull(message = "A data de nascimento não pode ser nula.")
 	private LocalDate nascimento;
 	
-	@NotNull(message = "O CPF não pode ser nulo.")
+	@NotNull(message = "O CPF não pode ser nulo.")	
 	@Size(min = 11, max = 11)
 	private String cpf;
 	

@@ -4,6 +4,7 @@ import { SetorComponent } from './components/estrutura/setor/setor/setor.compone
 import { CargoComponent } from './components/estrutura/cargo/cargo/cargo.component';
 import { MatriculasComponent } from './components/pessoal/matriculas/matriculas/matriculas.component';
 import { NiveisComponent } from './components/carreira/niveis/niveis/niveis.component';
+import { DashboardComponent } from './components/info-gerais/dashboard/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -13,11 +14,11 @@ export const routes: Routes = [
     },
     {
         path: 'info-gerais',
-        component: EmpresaComponent,
+        component: DashboardComponent,
         children: [
             {
                 path: 'dashboard', 
-                component: EmpresaComponent,
+                component: DashboardComponent,
                 data: {
                     title: 'Dashboard',
                 },

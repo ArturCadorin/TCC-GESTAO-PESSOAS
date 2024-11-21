@@ -46,7 +46,7 @@ public class Cargo implements Serializable{
 	@JoinColumn(name = "nivel_profissional_id")
 	protected PlanoCarreira nivelProfissional;
 		
-	@OneToMany(mappedBy = "cargo")
+	@OneToMany(mappedBy = "cargo",  cascade = CascadeType.ALL,  orphanRemoval = true)
 	private List<Colaborador> colaboradores;
 	
 	@ManyToOne

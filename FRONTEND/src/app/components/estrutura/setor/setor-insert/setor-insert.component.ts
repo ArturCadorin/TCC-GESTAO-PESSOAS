@@ -50,7 +50,7 @@ export class SetorInsertComponent {
 
     const setorComEmpresaId = {
       ...this.setor,
-      empresa: this.setor.empresa,  // Aqui 'empresa' é o id da empresa
+      empresa: this.setor.empresa,
     };
 
     this.setorService.createSetor(setorComEmpresaId).subscribe({

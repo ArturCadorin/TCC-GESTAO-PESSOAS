@@ -90,7 +90,7 @@
       <div class="form-container">
         <mat-form-field appearance="fill">
           <mat-label>Selecione o Setor</mat-label>
-          <mat-select [(ngModel)]="matricula.setor" required>
+          <mat-select [(ngModel)]="matricula.setor">
             <mat-option *ngFor="let setor of setores" [value]="setor">
             {{setor.id}} - {{ setor.nome }}
             </mat-option>
@@ -102,7 +102,7 @@
       <div class="form-container">
         <mat-form-field appearance="fill">
           <mat-label>Selecione o Cargo</mat-label>
-          <mat-select [(ngModel)]="matricula.cargos" required>
+          <mat-select [(ngModel)]="matricula.cargos">
             <mat-option *ngFor="let cargo of cargos" [value]="cargo">
             {{cargo.id}} - {{ cargo.nome }}
             </mat-option>

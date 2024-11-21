@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.gestao_pessoas.tccII.dto.ColaboradorDTO;
 import com.gestao_pessoas.tccII.entities.Colaborador;
+import com.gestao_pessoas.tccII.repositories.CargoRepository;
 import com.gestao_pessoas.tccII.repositories.ColaboradorRepository;
+import com.gestao_pessoas.tccII.repositories.SetorRepository;
 import com.gestao_pessoas.tccII.services.exceptions.DatabaseException;
 import com.gestao_pessoas.tccII.services.exceptions.ResourceNotFoundException;
 
@@ -20,6 +22,12 @@ public class ColaboradorService {
 	
 	@Autowired
 	private ColaboradorRepository repository;
+	
+	@Autowired
+	private SetorRepository setorRepository;
+
+	@Autowired
+	private CargoRepository cargoRepository;
 	private final String entityName = "Colaborador";
 	
 	// Converter entidade para DTO
